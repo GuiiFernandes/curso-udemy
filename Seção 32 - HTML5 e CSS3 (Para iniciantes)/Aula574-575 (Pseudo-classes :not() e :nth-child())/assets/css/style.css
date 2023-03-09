@@ -1,0 +1,42 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+/*A pseudo-classe not é muito importante, pois ela funciona como uma pseudo-classe de negação, tanto para não fazer, quanto para fazer quando não tiver em determinada condição.*/
+
+/*exemplo onde o not é usado com sentido de não fazer quando.*/
+p:not(.meio) { /*Neste exemplo, estilizamos todo conteúdo dentro de uma TAG <p> e chamamos a pseudo-classe :not para dizer que será estilizado todo exceto o que tiver a classe meio (.meio)*/
+    color: blue;
+}
+
+input:checked + p { /*Conforme vimos na aula anterior essa programação nos diz que estilizaremos o <p> que for após o input quando estado do input for checked. Isso vai se realizar para qualquer input do meu html.*/
+    background: red;
+}
+
+/*Exemplo onde o not é usado com sentido de fazer quando não.*/
+input:not(:checked) + p { /*Traduzindo: Estizamos o <p> após (+) o input quando ele não (:not) estiver selecionado (:checked). Isso vai acontecer com qualquer <p> após uma checkbox da minha página.*/
+    background: yellow;
+}
+
+/*Já a pseudo-classe nth-child é para estilizarmos um grupo de irmãos de forma igual selecionados pelo indice descrito em ()*/
+ul li:nth-child(odd) { /*Nesse exemplo estilizei todos os irmãos com indice impar (odd) da lista*/
+    background: darkred;
+}
+
+ul li:nth-child(even) { /*Nesse exemplo estilizei todos os irmãos com indice par (even) da lista*/
+    background: darkturquoise;
+}
+
+ul li:nth-child(3) { /*Nesse exemplo peguei o 3º irmão de uma lista não ordenada e colori o fundo.*/
+    background: darkorange;
+}
+
+/*nth funciona com qualquer TAG igual que seja irmã, podendo ser utilizada também, por exemplo, com o <p>*/
+div p:nth-child(4n) { /*Nesse exemplo estilizei os irmão saltando de 4 em 4.*/
+    background: darkolivegreen;
+}
+
+div p:nth-child(2n+3) { /*Neste exemplo eu estilizei os irmãos saltando de 2 em 2, porém pulando 3 da primeira estilização "+3".*/
+    background: deeppink;
+}

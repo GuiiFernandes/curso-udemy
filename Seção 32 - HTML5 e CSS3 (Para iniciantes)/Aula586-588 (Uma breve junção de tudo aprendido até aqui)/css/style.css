@@ -1,0 +1,122 @@
+html { /*Root HTML*/
+    font-size: 62.5%; /*Fonte padrão do arquivo ajustável ao navegador*/
+    scroll-behavior: smooth; /*propriedade que dá fluidez aos links que fazem rolagem automaticas da página.*/
+}
+
+* { /*Atributo geral*/
+    margin:0; /*tira as margens padrões*/
+    padding: 0; /*tira os paddings padrões*/
+    box-sizing: border-box; /*Mede o width e heigth pela borda.*/
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif; /*familia de fontes padrão.*/
+}
+
+body { /*para padronizar o tamanho da fonte do corpo em 16px*/
+    font-size: 1.6rem;
+}
+
+.grid { /*seletor do grid*/
+    background: rgb(147, 201, 180);
+    display: block;
+    max-width: 1200px; /**/
+    padding: 10px;
+    margin: 0 auto;
+    padding-top: 62.6px;
+}
+
+.home {
+    background: rgb(147, 201, 180);
+    max-width: 100%;
+}
+
+.grid::after {
+    content: '';
+    display: block;
+    clear: both;
+}
+
+.grid .col {
+    height: 200px;
+    float: left;
+    padding: 10px;
+}
+
+.grid .col-content {
+    width: 100%;
+    height: 100%;
+    background: #f5cde4;
+    border-radius: 50px 50px 50px 0; /*border-radius: top-left, top-right, bottom-right, bottom-left.
+    Para fazer um circulo deve-se fazer um box quadrado (4 lados de tamanho igual. e colocar "border-radius: 50%;*/
+    box-shadow: 2px 2px 5px 1px rgba(0, 0, 0, .3);
+    /*Box-shadow: inset (sombra interna), movimento horizontal (negativo sombra p/ esquerda, positivo sombra p/ direita), movimento vertical (negativo sombra p/ cima, positivo sombra p/ baixo), esfumaçado da sombra, espalhamento da sombra (Até onde ela vai)
+    Não é obrigado a usar todos os parâmetros.*/
+}
+
+.menu {
+    width: 100%;
+    position: fixed;
+    background: rgb(219, 219, 219);
+}
+
+.menu ul {
+    list-style: none;
+    display: block;
+    max-width: 1200px;
+    padding: 0 20px;
+    margin: 0 auto;
+}
+
+.menu ul li{
+    float: left;
+}
+
+.menu ul li a{
+    display: block;
+    padding: 15px;
+    text-decoration: none;
+    text-transform: uppercase;
+    color: black;
+    transition: all 400ms ease-in-out;
+}
+
+.menu ul li a:hover {
+    background: rgba(0, 0, 0, 0.6);
+    color:white;
+}
+
+.full-page-content {
+    max-width: 1200px;
+    padding: 0 20px;
+    margin: 0 auto;
+    padding-top: 72.6px;
+}
+
+.full-page {
+    background: #f5cde4;
+    display: block;
+    height: 100vh;
+    max-width: 100%;
+}
+
+@media (max-width: 568px){
+    .grid .col {
+        width: 100%;
+    }
+}
+
+@media (min-width: 569px) and (max-width: 768px) {
+    .grid .col {
+        width: 50%;
+    }
+}
+
+@media (min-width: 769px) and (max-width: 1200px) {
+    .grid .col {
+        width: 33.33%;
+    }
+}
+
+@media all and (min-width: 1200px) {
+    .grid .col {
+        width: 25%;
+    }
+}

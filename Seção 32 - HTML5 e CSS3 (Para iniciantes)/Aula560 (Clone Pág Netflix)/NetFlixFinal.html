@@ -1,0 +1,70 @@
+<!--O NetFlix segue mais ou menos o mesmo padrão do arquivo Netflixindex1, porém a logo e o botão são separados por uma div e isso muda alguns elementos na página, implementando o já comentado anteriormente, com mais algumas modificações temos esse resultado final:-->
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NETFLIX</title>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+            box-sizing: border-box;
+        
+        }
+
+        body{ /*Criei o fundo do corpo do site com a imagem do fundo do Netflix*/
+            background-image: url(https://assets.nflxext.com/ffe/siteui/vlv3/9b3267c9-5086-4550-92f1-eddc22a1f78e/9e812db0-7402-4b86-a62d-cc985c0162d7/BR-pt-20211004-popsignuptwoweeks-perspective_alpha_website_large.jpg);
+            background-size: cover; /*Usei esse comando para ajustar minha imagem a tela*/
+            background-position: top center; /*Posicionei minha imagem ao topo e centralizado*/
+        }
+
+        #heading {
+            background: rgba(0,0,0,0.7); /*Criei o heading preto com transparencia*/
+            /*nesse caso usamos uma cor "rgb" com elemento "a" que indica opacidade*/
+        }
+
+        #heading div { /*minha div agora é pai da logo e do botão, portanto preciso alinha-los de acordo com ela*/
+            width: 90%; /*Esse comando deixa minha div com 90% do tamanho da página, o que automaticamente cria um padding nas laterais*/
+            display:flex;
+            justify-content: space-between;
+            margin: 0 auto;
+
+        }
+
+        #heading .h1 {
+            margin: 10px;
+            padding: 30px 0;
+            font-size: 60px;
+            text-transform: uppercase;
+            color:#e50914;
+
+        }
+        
+        #heading .h2 { /*Criei essa classe h2 e mudei h1 e h2 para uma classe de <a>, para criar o botão*/
+            /*<h2> vai ser meu botã*/
+            padding: 10px; /*Criei um padding para criar um espaço dentro do botão*/
+            margin: 20px 0px 0px 0px;
+            font-size: 20px;
+            background: #e50914;
+            color:#fff;
+
+        }
+
+        #heading a {
+            text-decoration: none;
+            font-family: sans-serif;
+        }
+    </style>
+</head>
+<body>
+
+    <header id="heading">
+        <div> <!--No site do Netflix, o alinhamento da logo e botão são feitos por uma div, ao fazer isso h1 e h2 se tornam filhas da div e perdem a estilização de display:flex de header-->
+            <h1><a class="h1" href="#">Netflix</a></h1>
+            <h2><a class="h2" href="#">Entrar</a></h2>
+        </div>
+    </header>
+</body>
+</html>

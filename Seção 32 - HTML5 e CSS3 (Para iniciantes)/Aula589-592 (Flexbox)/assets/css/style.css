@@ -1,0 +1,148 @@
+html {
+    font-size: 62.5%;
+    scroll-behavior: smooth;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+body {
+    font-size: 1.6rem;
+}
+
+/*Flex Box como o próprio nome diz, é uma caixa flexível. Que pode ser configurada de várias formas, dentre elas para ser usada como Grid.*/
+
+.flex-container {
+    display: flex; /*Faz com que .flex-container se comporte da mesma maneira. Em display block, porém os filhos dele serão afestados pelo display flex. Abrindo um mundo de possibilidades e configurações.*/
+    /*Ao ativar display:flex eu ganho por padrão as seguintes propriedades/configuração no meu .flex-container:*/
+    flex-direction: row; /*Indica qual direção do eixo principal do meu flex. O row é para o eixo principal ficar em linha/horizontal, column é para ficar em coluna/vertical. Ou seja, o conteúdo vai ficar lado a lado ou um em cima do outro.
+    Um .flex-container sempre vai ter dois eixos, o main axis (eixo horizontal) e cross axis (eixo vertical) e o eixo principal pode ser qualquer um dos dois, isso afeta a direção do flex.
+    posso usar row-reverse e column-reverse, vai funcionar como row e column porém inverte a ordem dos itens Item Um vai para o lugar de Item Cinco e vice-versa.*/
+    justify-content: space-evenly; /*Indica o alinhamento do .flex-item no eixo principal
+    Todo eixo principal possui a possibilidade de alinhamento padrão com start, center e end. No main axis start é a esquerda e end a direita, no cross axis start é no topo e end no fundo.
+    É por padrão flex-start, que diz que nosso .flex-item vai se alinhar no começo (a esquerda) do nosso main axis (eixo principal). Teremos center para alinhar no centro e flex-end para o final do eixo.
+    outra configuração interessante é usar:
+    ->space-around = Essa propriedade distribui meus .flex-item de forma que tenha um espaço igual a direita e esquerda de cada item. É importante observar que nessa forma, os dois itens mais próximos as bordas do .flex-container ficaram com um espaço da borda menor do que do item em seu lado oposto. Isso acontece pq as margens de dois itens se somam e deixam espaços maiores de item para item do que de item para borda de .flex-container. Assim Item Um fica com uma margem menor a esquerda e Item Cinco a direita.
+    ->space-between = É a mesma distribuilção de around, mas sem a margem de .flex-item para a borda de .flex-container. Portanto Item Um e Item Cinco ficam colados nas bordas da página.
+    ->space-evenly = Distribui os itens de maneira igual com margens iguais em todos os lados.*/
+    align-items: stretch; /*Indica o alinhamento do .flex-item no eixo perpendicular.
+    É por padrão stretch que diz para esticar os itens até o fim do eixo perpendicular de .flex-container.
+    Mas pode ser flex-start, center ou flex-end assim como justify-content.
+    Mas pode ser baseline, para o alinhamento seguir a linha base do texto dos itens.*/
+    background: yellow;
+    height: 500px;
+    padding: 10px;
+    /*gap: 30px;*/ /*vai separar meus itens por um tamanho determinado de acordo com o eixo principal, como margin e deve ser aplicado no .flex-container, mas não funciona em todos os navegadores.*/
+}
+
+.flex-item {
+    width: 100%; /*Ao dizer que meu .flex-item tem um tamanho correspondente a 15% do meu .flex-container ele vai literalmente pegar o tamanho do meu .flex-container e multiplicar por 0,15. Se esse resultado do tamanho dos itens somados ultrapassar o tamanho do .flex-container o tamanho dos meus itens vai ser limitado por um espaço igual para cada um sem extrapolar o tamanho de .flex-container.*/
+    margin: 10px; /*Ao colocar margens eu vou separar os meus .flex-item. Posso usar gap: também.*/
+    background: red;
+}
+
+/*Quando aumento a quantidade de itens no meu grid, o navegador cria um overflow no meu grid. Para permitir que o grid se alinhe na próxima página uso flex-wrap: wrap*/
+.flex-container2 {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap; /*wrap diz que eu permito que meu display jogue o .flex-item para a linha de baixo ou coluna para o lado no eixo principal para se adequar no .flex-container.*/
+    align-items: flex-start; /*Alinha o conteúdo pelo eixo principal*/
+    align-content:space-around; /*Podemos alinhar o conteúdo também pelo eixo perpendicular. O align-content aceita as propriedades flex-start, flex-end, center, stretch, space-around e space-between. O align-items alinha de acordo com o item e a linha, enquanto o align-content pega o conteúdo e a linha.*/
+    background: blue;
+    height: 500px;
+}
+
+.flex-item2 {
+    width: 50%; /*Para fazer com que eu tenha 2 itens por linha eu posso redimensionar meu item para 50% da largura do grid. Se eu quiser que a quantidade de itens por linha seja dado pelo tamanho da tela posso usar o width em pixel, assim quando eu movimentar a tela, a quantidade de itens muda.*/
+    color: white;
+    background: green;
+}
+
+.flex-container3 {
+    display: flex;
+    justify-content: space-between;
+    flex-flow: row wrap; /*Junção/atalho de flex-direction e flex-wrap respectivamente.*/
+    background: palevioletred;
+}
+
+.flex-item3 {
+    flex-grow: 1; /*Define a flexibilidade do espaço restante de um .flex-container para ser divido e ocupado pelos .flex-item sem deixar sobrar espaço em branco. Permite que */
+    flex-basis: 320px; /*Usado junto com o flex-grow, serve para delimitar o espaço mínimo necessário para o meu .flex-item no eixo principal.*/
+    flex-shrink: 1; /*Define se o .flex-item pode ou não diminuir do tamanho de flex-basis para se ajustar a tela, é por padrão 1.*/
+    /*As propriedades acima podem ser resumidas por:*/
+    flex: 1 0 320px; /*Onde 1=flex-grow, 0=flex-shrink e 320px é flex-basis. É recomendado que use sempre o atalho.*/
+    height: 200px;
+    color: white;
+    background: brown;
+}
+
+/*O valor de flex-grow significa uma proporção por item, pois nesse casso posso usar um tamanho diferente para determinado .flex-item do meu .flex-container.*/
+.flex-item3:nth-child(2) {
+    flex: 2 1 320px; /*Neste caso eu tenho que a proporção de uso do espaço em branco é 2x maior neste .flex-item que nos demais que tem flex-grow=1.*/
+    background: chartreuse;
+}
+
+.flex-container4 {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-flow: row nowrap; /*nowrap é para os .flex-item ficarem na mesma linha.*/
+    background:cyan;
+    height: 500px;
+}
+
+.flex-item4 {
+    width: 100%;
+    color: white;
+    background: black;
+}
+
+.flex-item4:nth-child(3) {
+    align-self: flex-end; /*Alinha um item específico de acordo com o eixo paralelo.*/
+    order: -2; /*order realinha os elementos de acordo com o valor estabelecido, ficando sempre o menor número mais a esquerda. Por padrão é 0.*/
+}
+
+.flex-item4:nth-child(4) {
+    align-self: center;
+    order: -1;
+}
+
+.flex-item4:nth-child(2) {
+    align-self: stretch;
+    order: 1;
+}
+
+p {
+    margin: 0 0 16px;
+    border: solid rgba(0, 0, 0, 0.2)
+}
+
+.two-colums {
+    display: flex; /*Minha div .two-colums é display flex, isso faz com que minhas duas div .col fiquei posicionadas lado a lado.*/
+}
+
+.two-colums .col {
+    display: flex; /*Quando eu ativo o display flex dentro da minha div .col os meus <p> viram dois parágrafos posicionados dentro de duas colunas. Isso porque por padrão o eixo principal é horizontal.*/
+    flex-direction: column; /*tranformo meu flex-direction em column para posicionar os dois box de <p> verticalmente.*/
+    background: blueviolet;
+    color: white;
+    margin: 10px;
+    padding: 15px;
+}
+
+.gallery { /*Criei uma div .galerry dentro de uma das div .col. Isso é pra criar um novo box dentro de outro box que está em um grid flex.*/
+    display: flex; /*Coloco que o display é flex. Pois gallery vai ser um grid para receber .img.*/
+    flex-flow: row wrap; /*Crio um alinhamento horizontal com quebra de linha por item.*/
+}
+
+.gallery .img {
+    flex: 1 0 20%; /*E crio cada imagem com grow 1, shrink 0 (não diminui) e basis 20% do tamanho de gallery.*/
+    height: 50px;
+    background: white;
+    margin: 10px;
+}
+/*Essa configuração vai criar um grid .two-columns e dentro dele duas box .col que ficam alinhadas lado a lado, .col vira um grid para os <p> que estão dentro delas que ficam alinhados verticalmente. E dentro das 2ª .col criamos uma outra box .gallery que vai ser configurada como um grid para receber várias box .img que serão as imagens da galeria.*/

@@ -1,0 +1,101 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+#p {
+    background: red;
+}
+
+.p {
+    background: yellow;
+}
+
+#p.p {
+    background: green;
+}
+
+/*
+Especificidade de CSS por pontuação (maior > menor):
+ID - Classes, Atributos e pseudo-classes - Elementos e pseudo-elementos
+Ao passar o mouse vemos que a especificidade do seletor:
+# (id): 1 - 0 - 0 = 100
+. (classe): 0 - 1 - 0 = 010
+(100 > 10, portanto tem prioridade na estilização)
+Quando uno #p com .p no seletor, tenho uma especificidade de:
+ID - Classes, Atributos e pseudo-classes - Elementos e pseudo-elementos
+#(id).(classe): 1 - 1 - 0 = 110 (Esse especificidade sobrepõe a de #p e a substitui.)
+Quanto mais específica for minha seleção maior vai ser a especificidade, levando em consideração sempre a conta..*/
+
+p#p {
+    background: brown;
+}
+/* Quando chamo p#p eu tenho um elemento e um id no seletor.
+ID - Classes, Atributos e pseudo-classes - Elementos e pseudo-elementos
+(elemento)#(id)/#(id)(elemento) (id dentro de elemento/Tag ou vice-versa): 1-0-1 = 101
+101<110, portanto não sobreescreve #p.p*/
+
+p#p.p {
+    background: blue;
+}
+/*quando chamo tenho um elemento, que contém um id e uma classe como seletor. Isso dá:
+ID - Classes, Atributos e pseudo-classes - Elementos e pseudo-elementos
+(elemento)#(id).(classe): 1-1-1 = 111
+111 > 110, portanto sobreescreve #p.p sendo mais específico, vai ser a estilização aplicada.*/
+
+#b p#p.p {
+    background: cyan;
+}
+/*dessa vez chamei uma id b de body, elemento p com id p e classe p, a especificidade vai ser:
+ID - Classes, Atributos e pseudo-classes - Elementos e pseudo-elementos
+#(id) (elemento)#(id).(classe): 2-1-1 = 211
+211 > 111, portanto sobreescreve p#p.p*/
+
+/*posso aumentar ainda mais a especificidade*/
+body#b p#p.p {
+    background: greenyellow;
+}
+/*ID - Classes, Atributos e pseudo-classes - Elementos e pseudo-elementos
+(elemento)#(id) (elemento)#(id).(classe): 2-1-2 = 212
+212 > 211, sobreescreve #b p#p.p*/
+
+/*Especificidade muito alta*/
+body#b.bclass p#p.p {
+    background: grey;
+}
+/*ID - Classes, Atributos e pseudo-classes - Elementos e pseudo-elementos
+(elemento)#(id).(classe) (elemento)#(id).(classe): 2-2-2 = 222
+222 > 212, sobreescreve body#b p#p.p*/
+
+/*Posso usar por exemplo:*/
+body#b.bclass p#p.p:hover::selection { /*Nesse caso eu estilizei o conteúdo selecionado de um elemento quando o mouse estiver em cima dele que esteja dentro de um elemento p com classe p e id p, que está dentro de um body com classe bclass e id b.*/
+ background: pink;
+}
+/**ID - Classes, Atributos e pseudo-classes - Elementos e pseudo-elementos
+(elemento)#(id).(classe) (elemento)#(id).(classe):(pseudo-classe)::(pseudo-elemento) = 2 - 3 - 3 = 233
+233 > 222*/
+
+body div ul li a {} /*Esse exemplo possui vários seletores, porém de especificidade muito baixas:
+ID - Classes, Atributos e pseudo-classes - Elementos e pseudo-elementos
+(elemento) (elemento) (elemento) (elemento) (elemento) = 0 - 0 - 5 = 005
+005 < 233*/
+
+/*tag style no html sobreescreve qualquer seletor em style.css*/
+
+/*Forma não usada mais existente:*/
+p.p { /*quando tiver dois important, será levado em conta a especificidade dos seletores como desempate.*/
+    background: purple !important;
+}
+/*Deve-se ter muito cuidado ao usar !important, pois ele muda completamente o comportamento do navegador e sobreescreve até a TAG style no html. Se tiver duas important, sobreescreve seguindo as regras convencionais.
+Deve ser usado no último dos últimos casos, quando não tiver mais outra opção.*/
+
+/*Regra de aplicação:
+1º- !important
+2º- TAG style
+3º- especificidade
+4º- Quem estiver mais embaixo no CSS.
+
+Quando tenho duas estilizações no mesmo conteúdo, primeiro !important sobreescreve todas as outras, se não tiver !important, TAG style no HTML vai sobreescrever. Não tendo, será analisado a especificidade dos seletores, dando empate. Será aplicado o que estiver mais embaixo no CSS.*/
+
+/*É sempre recomendado usar classes, pois tem especificidade mediana que conseguem expressar exatamente o ponto que você quer estilizar, porém é de fácil sobreescrição se você precisar.*/

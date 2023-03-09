@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de IMC (Índice de Massa Corporal)</title>
+    <link rel="stylesheet" href="./assets/css/style.css">
+</head>
+
+<body>
+    <section class="container">
+        <h1>Calculadora de IMC</h1>
+        <article>
+            <p>O Índice de Massa Corporal, conhecido pela sigla IMC, é um cálculo simples que permite medir se alguém está ou não com o peso ideal. Ele aponta se o peso está adequado ou se está abaixo ou acima do peso.</p>
+            <p>Nesta calculadora você vai poder inserir o seu peso, sua altura e retornaremos seu IMC. Os dados são armazenados e te daremos uma avaliação do seu IMC.</p>
+            <p>Você pode inserir seus dados ao longo de um tempo para ter uma comparação da evolução do seu IMC.</p>
+        </article>
+        <form class="form" action="" method="get">
+            <label for="data"><b>Data:</b></label>
+            <input type="date" id="data" name="data"/>
+            <label for="peso"><b>Peso:</b></label>
+            <input type="number" id="peso" step="0.01" id="peso" placeholder="Kg">
+            <label for="altura"><b>Altura:</b></label>
+            <input type="number" id="altura" step="0.01" id="altura" placeholder="m">
+            <button type="submit">Enviar</button>
+        </form>
+        <div class="responsive-table">
+            <table>
+                <thead class="thead">
+
+                </thead>
+                <tbody class="tbody">
+                </tbody>
+            </table>
+        </div>
+    </section>
+    <script src="./assets/js/main.js"></script>
+</body>
+
+</html>

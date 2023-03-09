@@ -1,0 +1,47 @@
+*{
+    margin:0;
+    padding: 0;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+/*html, body {
+    height: 100%;
+}*/
+/*Desativo essa configuração, se não ela vai forçar todas as minha div para ocuparem 100% da página.*/
+
+.texto {
+    /*display: block;*/ /*usar essa propriedade é redundância, visto que div já é por padrão display: block.*/
+    background: red;
+    margin-bottom: 20px;
+    width: 200px;
+    height: 200px;
+    overflow: hidden; /*essa propriedade força meu conteúdo a caber no box, esse conteúdo fica para dentro do box, invisível para o usuário, porém ainda existente dentro do box. Para poder criar uma rolagem no box para visualizar todo o conteúdo nele usamos:*/
+    overflow-y: scroll; /*Eixo Y é o eixo vertical e X é o horizontal, enquanto scroll cria uma barra de rolagem para que o usuário possa visualizar todo conteúdo dentro do limite de área do box. Porém mesmo se o conteúdo couber na caixa, a barra de rolagem se mantém, para tornar ela ajustável ao texto usamos:*/
+    overflow: auto; /*Nesse exemplo, o texto em Título 1 cabe na box então não é necessário ter a barra de rolagem, já o conteúdo do Título 2 não cabe, portanto é necessário ter a rolagem.*/
+} /*Altura e largura são propriedades exclusivas de display: block, ou seja, do Box-Model. Se aplicada em conteúdos com display: inline, não vão funcionar.*/
+
+.texto2 {
+    box-sizing: border-box; /*Essa propriedade nos diz quais partes do box compõe o width e height.*/
+    /*Vem por padrão content-box: Só o conteúdo faz parte do widht/height e padding, border e margin são acrescentadas além das limitações de width/height.
+    padding-box: Conta o conteúdo e o padding para formar o widht/height do box, border e margin são além.
+    border-box: conta o conteúdo, o padding e a boda para formar o widht/height do box. Margin sempre vem pra fora do conteúdo. É o mais utilizado e é o que vamos configurar todas nossas box.
+    */
+    background: blue; 
+    width: 100%; /*% indica que é para ocupar esse percentual da página*/
+    height: 100%; /*Essa programação por si só geralmente não funciona pq os pais (body e html ou outras tags que tem configurações padrões seguram o tamanho dessa div. Porém eu posso usar o seletor "html, body" com a propriedade "height: 100%" que vai dizer que tudo na minha página deve ter um tamanho de 100% da minha página. Normalmente essa forma não é usada, tenho outra unidade de medida para isso...*/
+    max-width: 600px; /*limita a largura máxima da box*/
+    max-height: 300px; /*limita a altura máxima da box*/
+    min-width: 0; /*limita a largura mínima da box*/
+    /*min será muito usado em box sem conteúdo, pois sem essa propriedade as delimitações da box sumiriam.*/
+    min-height: 100px; /*limita a altura mínima da box*/
+    /*Max e min torna sua box mais responsiva a diferentes dispositivos ela vai ajustar sua box até o limite mínimo ou máximo estabelecido.*/
+    overflow: auto;
+    margin: 10px auto; /*faz com que minha div tenha sempre margem de 10px em cima e embaixo e seja automatica nas laterais o que vai centralizar minha box.*/
+    padding: 30px; /*enchimento dentro do conteúdo da box*/
+    /*border: 3px solid black;*/ /*Borda sólida de 3px preta na box. forma simples de controlar a borda.*/
+    /*Posso fazer o design independente da borda.*/
+    border-width: 3px; /*modifica o tamanho da borda. É a forma resumida, mas pode ser usada border-top para editar o tamanho específico de um lado.*/
+    border-style: groove; /*Border style vai dizer o estilo da borda aplicada.*/
+    border-color: gray; /*Cor da borda*/
+    border-radius: 10px; /*curva na ponta da borda.*/
+}

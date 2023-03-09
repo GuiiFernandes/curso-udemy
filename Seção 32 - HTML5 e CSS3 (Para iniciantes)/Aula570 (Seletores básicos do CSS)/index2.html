@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seletores básicos do CSS pt1 (2)</title>
+    <link rel="stylesheet" href="./assets/css/style2.css">
+</head>
+<body class="error">
+    <!--Ao chamar a classe, ela se aplica apenas no conteúdo da TAG onde ela foi chamada.-->
+    <h1 class="color-red">Título 1</h1>
+    <h1>Título 1</h1> <!--A estilização não se aplica aqui, porquê não foi citado a classe.-->
+    <p class="color-red">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid ipsam vitae sed totam culpa! Accusamus a voluptate, nobis possimus sint optio. Culpa architecto ipsum quis atque sequi amet fugit est?</p>
+
+    <div class="main-content">
+        <h2>Título 2</h2> <!--Note como Título 2 recebe a estilização conforme especificado em CSS-->
+        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Soluta illum sunt mollitia dolores cum necessitatibus, nihil temporibus laborum sit explicabo nesciunt! Nobis nemo non fugit suscipit placeat soluta voluptatum. Voluptas!</p>
+    </div>
+    <h2>Título 3</h2> <!--Título 3 já não recebe, por não estar dentro de uma TAG com classe main-content-->
+    <h2 class="main-content">Título 4</h2> <!--Título 4 também não recebe, porquê apesar de conter a classe main-content e ser um h2, a estilização não se aplica porquê no CSS eu disse que o h2 tem que estar dentro da TAG com a classe e não ser a classe, para esse exemplo temos abaixo:-->
+    
+    <!--Exemplo para chamar estilização por classe dentro de outra classe-->
+    <div class="main-content">
+        <h2 class="blue">Título 5</h2> 
+        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Soluta illum sunt mollitia dolores cum necessitatibus, nihil temporibus laborum sit explicabo nesciunt! Nobis nemo non fugit suscipit placeat soluta voluptatum. Voluptas!</p>
+    </div>
+    <!--Ex. que chama a TAG, dentro de uma TAG-->
+    <div class="main-content1">
+        <h2 class="blue">Título 6</h2> 
+        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Soluta illum sunt mollitia dolores cum necessitatibus, nihil temporibus laborum sit explicabo nesciunt! Nobis nemo non fugit suscipit placeat soluta voluptatum. Voluptas!</p>
+    </div>
+    <!--Ex. que chama uma TAG com classe específica que esteja dentro de outra TAG-->
+    <div class="main-content2">
+        <h2> Título 7</h2> <!--Note que mesmo Título 7 sendo um h2 não recebe estilização por não ter a class=yellow-->
+        <h2 class="yellow">Título 8</h2> <!--Título 8 recebe estilização yellow porque cumpre as exigências para tal.-->
+        <h2 class="green"> Título 9</h2>
+        <h3 class="yellow">Título 10</h3> <!--Título 10 não recebe yellow pois mesmo sendo uma TAG com classe yellow dentro de um main-content2 não é um h2-->
+        <h3 class="green">Título 11</h3> <!--Recebe estilização green assim como Título 9, pois mesmo sendo TAGs diferentes usam o CSS ".main-content2 .green"..-->
+        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Soluta illum sunt mollitia dolores cum necessitatibus, nihil temporibus laborum sit explicabo nesciunt! Nobis nemo non fugit suscipit placeat soluta voluptatum. Voluptas!</p>
+    </div>
+    <div class="main-content3">
+        <h2 class="cyan"> Título 12</h2>
+        <!--Com o JavaScript, podemos criar uma programação que em determinada situação tire/coloque a classe error do body. Isso vai fazer com que em determinado momento o CSS "body.error div.main-content3 h2.cyan" estize algum conteúdo de uma determinada TAG, mas após algo acontecer que mude a situação e ative essa programação o conteúdo perca/ganhe a estilização.-->
+        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Molestiae porro officia, dicta sit eos fugiat quia enim iste velit quae, consequatur ratione sint quas ut tempore perferendis dolorum. Possimus, corrupti.</p>
+    </div>
+
+    <div class="pai">
+        Pai 1
+        <div class="filha">Filha 1</div>
+    </div>
+
+    <div>
+        Pai 2
+        <div class="pai neto filha vó tio sobrinho">Filha 2</div>
+    </div>
+    <!--Pode acontecer também de você querer selecionar apenas Filho4 e não estilizar Neto4. Dessa forma fazemos como indicado no arquivo CSS-->
+    <div class=pai2>
+        Pai 3
+        <div class="pai neto filha2 vó tio sobrinho">
+            Filha 3
+            <div class="pai neto filha2 vó tio sobrinho">Neto 3</div>
+        </div>
+        <div class="pai neto filha2 vó tio sobrinho">
+            Filha 4
+            <div  class="pai neto filha2 vó tio sobrinho">Neto 4</div>
+        </div>
+    </div>
+</body>
+</html>

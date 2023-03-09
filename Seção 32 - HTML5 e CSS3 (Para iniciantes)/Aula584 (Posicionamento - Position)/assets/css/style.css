@@ -1,0 +1,120 @@
+html {
+    font-size: 62.5%;
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+p {
+    font-size: 1.6rem;
+}
+
+.pai {
+    height: 300vh;
+}
+
+.filha1, .filha2, .filha3, .filha4, .filha5, .filha6, .filha7, .filha8 { /*"," permite pegar mais de um seletor para uma mesma estilização.*/
+    font-size: 1.6rem;
+    width: 30rem;
+    height: 30rem;
+    float:left;
+}
+
+.filha3 {
+    background: red;
+    border: 2px solid black;
+    position: static; /*Static é a position padrão do navegador. Ela não aceita algumas das propriedades que vamos usar nesta aula.*/
+}
+
+.filha2 {
+    background: rgba(255, 255, 0, 0.4);
+    text-align: center;
+    border: 2px solid black;
+    position: absolute; /*asbsolute= Posição que o elemento muda de camada, ela faz com que o elemento tenha uma relação absoluta (mova livremente) a determinado elemento, perdendo assim o espaço que estava destinada a ele. Permite posicionar meu elemento em relação a outro elemento. É muito usado quando um elemento tem que ficar por cima de outros elementos em uma posição específica, sem se preocupar com outros elementos. Ele aparece, mas é como se ele não existisse na página.*/
+    /*Muito útil para utilizar em locais do site onde abre uma caixa e o fundo da tela escuresse.*/
+    width: 100%;
+    height: 100%;
+    /*Você aplica um box com position absoute e width e height de 100% com a cor desejada e transparência.*/
+}
+
+.filha4 {
+    background: green;
+    text-align: right;
+    border: 2px solid white;
+    position: absolute;
+    /*Se eu usar negativo, meu navegador cria uma overflow para que essa div fique abaixo do meu display.*/
+    bottom: -10rem;
+    right: -5rem;
+    z-index: -1; /*z-index negativo. Explicação no box azul*/
+} /*Olhe como minha box invade a parte inferior do meu display.*/
+
+.filha5 {
+    border: 2px solid red;
+    color:red;
+    position: absolute;
+    /*Eu posso também usar as propriedades top, bottom, left e right para criar um box que ocupe toda a página. Para isso eu:*/
+    width: auto;
+    height: auto;
+    /*Falo que width e height é automático para ele se ajustar ao que vem abaixo.*/
+    top: 0rem;
+    right: 0rem;
+    left: 0rem;
+    bottom: 0rem;
+    /*Dessa forma estou dizendo que com tamanho auto, minha div encosta em todas as bordas do display.*/
+}
+
+/*Abaixo temos uma forma de criar uma box centralizada dinâmica na página. Não é o método utilizado atualmente, mas é bom saber.*/
+.filha6 {
+    background: black;
+    border: 2px solid white;
+    color:white;
+    position: absolute; /*Com posição absoluta digo que minha div*/
+    top: 50%; /*está a 50% do tamanho total do meu topo e*/
+    left: 50%; /*50% do meu lado esquerdo.*/
+    /*Isso faz com que a ponta superior esquerda do meu box fique centralizado. Depois é só tirar a diferença usando margin negativo. Faço meu box subir e ir para a esquerda em metade do seu tamanho total.*/
+    margin-top: -15rem;
+    margin-left: -15rem;
+    z-index: 10; /*Essa propriedade indica em qual camada está meu elemento. Pode ser de 0 a infinito e não precisa começar necessariamente em 1, só significa que quando maior o número mais acima da página está o elemento. Se o z-index for negativo o elemento vai para o fundo da página. Não funciona com position static.*/
+}
+
+.filha1 {
+    background: blue;
+    border: 2px solid black;
+    position: relative; /*relative= Essa position, assim como absolute, permite ativar top, bottom, left e right. Mantém o espaço original do meu elemento ocupado, não muda o flow da página, e permite posicionar meu elemento em relação a sua posição original.*/
+    top: 5rem; /*Minha div-box, está a 50px do topo da sua posição original.*/
+    left: 5rem; /*Minha div-box, está a 50 px da esquerda da sua posição original.*/
+    /*Isso diz que o meu elemento está a uma medida especifica de distância dos lados do meu display. Portanto, se for "right: 5rem;" diz que que minha div-box está a 50px da direita da minha página.*/
+    z-index: 2;
+}
+
+/*Neste exemplo vemos como ao usar top, bottom, left e right o box se posiciona de forma relativa a sua posição original. E a posição não é ocupada, exceto pelo que tem position relative.*/
+.filha7 { 
+    background: purple;
+    border: 2px solid black;
+    position: relative;
+    top: 5rem;
+    right: 5rem;
+}
+
+/*Quando crio um elemento, dentro de um outro elemento que tem position absolute, esse elemento respeita a relatividade de seu pai e se movimenta em relação as extremidades de seu pai. Já com outras position ele se comporta de forma convencional.*/
+.text {
+    font-size: 3rem;
+    background: white;
+    position: absolute;
+    top: 7rem;
+    left: 7rem;
+}
+
+.filha8 {
+    background: turquoise;
+    border: 2px solid black;
+    position: fixed;
+    /*Essa position se comporta de forma similar a absolute, mas ao contrário da absolute ela fica fixa independente do movimento da página.*/
+    right: 0rem;
+    top: 30%;
+}
+/*Continuação em index2.html*/

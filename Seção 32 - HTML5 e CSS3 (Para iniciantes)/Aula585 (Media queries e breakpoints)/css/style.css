@@ -1,0 +1,67 @@
+html {
+    font-size: 62.5%;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif
+}
+
+body {
+    font-size: 1.6rem;
+}
+
+.grid {
+    padding: 10px;
+}
+
+.grid::after {
+    content: '';
+    display: block;
+    clear: both;
+}
+
+.grid .col {
+    /*width: 33.33%;*/
+    height: 200px;
+    float: left;
+    padding: 10px;
+}
+
+.grid .col-content {
+    width: 100%;
+    height: 100%;
+    background: #473d8b;
+    color:white;
+}
+
+/*é uma propriedade que faz uma estilização quando alguma condição é atingida. Pode ser várias condições usando and, pode ser aplicada a estilização quando não cumprir a condição com o not ou pode ser aplicada a estilização só quando atingir uma condição exata e especifica usando o only, podem haver várias condições dentro do media e estes são separados por ",".*/
+@media (max-width: 568px){ /*Neste exemplo eu usei a forma simplificada @media e disse que ele vai ser ativado até que minha tela atija o limite máximo de 568px. Geralmente usamos o conceito mobile first, então neste caso eu desevolveria meu site para o celular e usaria o @media para ajustar meu grid ao tamanho de desktop, mas como fizemos o grid da aula 580 como computer first, vamos usar o @media para que meu usuário veja apenas uma box por linha*/
+    .grid .col { /*para isso eu chamo a classe col dentro de grid, que é classe referente a minha box. Onde eu anteriormente disse que "width=33,33% para que 3 box ocupasse o 100% da largura da página.*/
+        width: 100%; /*Porém agora eu vou afirmar que minha box vai ocupar 100% da minh página. Assim, vou ter uma box por linha.*/
+    }
+}
+/*quando usamos apenas @media, estamos dizendo que ela será aplicada para todos os dispositivos é como se tivessemos @media all, podemos usar no lugar de all tv, screen (telas), print (impressoras), etc.. Todas as possibilidades estão no link no arquivo da aula.*/
+
+@media (min-width: 569px) and (max-width: 768px) { /*Neste exemplo eu disse que minha estilização @media vai ser ativada se meu display tiver largura maior ou igual a 569px "(min-width: 569px)" e "and " menor ou igual de 768px "(max-width: 768px)".*/
+    .grid .col { /*Quando essa condições forem aceitas, minha box vai receber*/
+        width: 50%; /*Uma largura de 50% do display, isso vai fazer com que eu tenha 2 box por linha.*/
+    }
+}
+/*Se eu tiro o width do meu seletor ".grid .col", em qualquer medida de display que não esteja nas condições acima meu box mantém as configurações padrões do conteúdo do box.*/
+
+@media (min-width: 769px) and (max-width: 1200px) { /*Se o display tiver largura entre 769px e 1200px.*/
+    .grid .col { /*meu box*/
+        width: 33.33%; /*Vai ocupar 33,33% do display, portanto terei 3 box por linha.*/
+    }
+}
+
+@media all and (min-width: 1200px) { /*"All and" é a forma por externso de @media e diz que em todas as condições "all" e "and" se o mínimo do meu display for 1200px "(min-width: 1200px)" a estilização será ativada.*/
+    .grid .col { /*O meu box então vai*/
+        width: 25%; /*ter tamanho de 25% da página e terei 4 box por página.*/
+    }
+}
+
+/*breakpoints são os principais pontos de quebras de tela dos principais dispositivos. Qual é o ponto onde preciso ter o @media para reajustar meu grid para ficar melhor visível para o usuário. */

@@ -1,0 +1,24 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+/*Para trabalhar com REM de forma inteligente, onde ele se pareça com pixel, porém permitindo que o usuário mude as configurações do navegador e todos os elementos da página, se comportem de forma relativa e não absoluta.*/
+/*Primeiro precisamos saber que por padrão a fonte de html é 16px. Para termos um html responsivo as mudanças do display do usuário usamos por padrão a medida da fonte de html em %.*/
+
+html {
+    font-size:62.5%; /*Como a fonte padrão do html é 16px, usamos uma fonte de tamanho 62,5% para termos um padrão de 10 px. Sendo assim, vou expressar as medidas em rem sempre dividindo valor que eu quero em pixel por 10.*/
+}
+
+.pai {
+    width: 30rem; /*30rem vai ser equivalente a 300px.*/
+    height: 15rem; /*15rem equivale a 150px.*/
+    background: yellow;
+}
+
+p{
+    font-size: 1.6rem; /*Ao expressarmos 1.6rem estamos dizendo que a fonte vai ter 16px.*/
+}
+/*Escrevendo dessa forma, quando o tamanho for modificado pelo usuário no navegador, vai ser modificado também no tamanho da página.*/

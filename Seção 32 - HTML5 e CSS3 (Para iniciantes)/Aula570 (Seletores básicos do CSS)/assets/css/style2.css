@@ -1,0 +1,64 @@
+*{
+    margin:0;
+    padding: 0;
+}
+
+/*Seletor que chama classe é o .nomedaclasse*/
+.color-red {
+    color: red;
+}
+/*Aqui eu disse que apenas h2 que estão dentro de uma TAG com classe main-content vão receber essa estilização*/
+.main-content h2 {
+    font-style: italic;
+}
+
+/*Apenas uma classe especifica dentro de outra classe recebe a estilização.*/
+.main-content1 .blue {
+    color: blue;
+    font-style: italic;
+}
+
+/*Apenas uma TAG específica que contém uma classe específica que está dentro de uma TAG especifica, recebe a estilização*/
+.main-content2 h2.yellow {
+    color: yellow;
+    font-style:italic;
+} /*Pode ser feito apenas com a tag.class {, significando que todas as tags com determinada classe vai receber a estilização independente dentro de onde ela esteja.*/
+/*ou posso ser mais específico ainda dizendo que é: tagpai.class tagfilha.class {. Isso diz que todas as tags com classe específica, dentro de outra tag com outras classes específicas serão estilizadas.*/
+
+/*Bem parecido com o exemplo anterior, porém não leva em consideração a TAG, sendo estilizado tudo aquilo que tem a classe green e está dentro de main-content independente da TAG, note-se que no HTML um h3 recebe a estilização pois segue os parâmetros.*/
+.main-content2 .green {
+    color:green
+} /*Não existe limites de quantidade de classe ou TAG dentro de um CSS, só deve ser respeitado as descedências hierarquias (ser descendentes, em ordem correta pais a esquerda e filhos a direita). Porém quanto mais classes ou TAGs chamadas mais específico vai ser aplicada a estilização.*/
+
+/*A classe Error pode ser tirada de body por meio de uma programação JavaScript, fazendo com que algum conteúdo de uma tag do HTML perca ou mude sua estilização, esse seletor diz que o h2 com classe cyan, que está dentro de div com classe main-content3, que está dentro de um body com classe error recebe a estilização, se o body não tem classe error e ela é adicionada com JavaScript, a estilização é aplicada*/
+body.error div.main-content3 h2.cyan {
+    font-style: italic;
+    color: cyan;
+}
+
+/*tudo que tem pai recebe estilização. Neste caso existe uma div descentende da div com classe pai, e ela recebe a estilização por descendência.*/
+.pai {
+    color: purple;
+}
+
+/*Toda div vem por padrão "color: inherit" que faz com quem ela receba estilizações por descendência.*/
+div {
+    color: initial; /*Ao usar initial na color eu quebro esse padrão de descendência nas minhas divs.*/
+    margin-left: 20px;
+}
+
+/*seletor que estiliza filha dentro de pai*/
+.pai .filha {
+    color: orange
+}
+
+/*O espaço entre as classes faz muita diferença em CSS, sem espaço você está dizendo que só vai estilizar se a TAG tiver ambas as classes, independente de quantas outras tem, ela tem que ter pai e filha para ser estilizado.*/
+.pai.filha{
+    color:yellowgreen;
+}
+
+/*Quando eu quero chamar apenas uma TAG com uma classe específica que é descentende direta de uma TAG com outra classe usamos ">" entre os seletores independente do espaço, esse seletor é chamado de shieldselector. Dessa forma, como no exemplo no HTML, Neto não rece a estilização mesmo contendo a classe filha2 por não ser dependente direta de uma TAG que tenha a classe pai2.*/
+.pai2 > .filha2 {
+    color: pink;
+} /*Neste mesmo exemplo do HTML, se eu quisesse selecionar apenas o neto faria meu seletor com ".pai2>.filha2.filha2" dessa forma estou dizendo que apenas, uma TAG contendo a classe filha2, descendente direta de outra TAG contendo filha2 que é direta de outra TAG contendo pai2 será estilizada.*/
+/*As possibilidades são infinitas, porém quanto mais específico eu for no seletor, mais específico estarei sendo na estilização.*/

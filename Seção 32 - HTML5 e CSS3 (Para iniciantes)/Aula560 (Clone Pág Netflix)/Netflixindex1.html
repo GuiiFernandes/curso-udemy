@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NETFLIX</title>
+    <style>
+        *{ /* Usamos "*" em CSS para estilizar de um determinada forma tudo na minha página.*/
+            margin:0;
+            padding:0;
+            /*Nesse caso usamos para retirar a margem e a distâcia entre o elemento e a borda*/
+        }
+        #heading { /*Chamo o ID "heading" para poder estilizar meu heading*/
+            display: flex; /*Serve para flexibilizar meu display, vai permitir que o menu e botão fiquem na mesma linha criando colunas.*/
+            background: #e50914; /*Mudo a cor do fundo*/
+            justify-content: space-between; /*move as duas logos para as extremidades*/
+        }
+        /*Usamos o Id e h1 para mudar especificamente o Título*/
+        #heading .h1 { /*Observe que usamos "." para chamar a classe e não todos os h1. Poderiamos também colocar o "a" a direita do ".h1" para especificar ainda mais qual link eu quero mudar, temos que tomar cuidado com isso, pois quanto mais elementos eu tiver na sequencia, maior a especificidade e quanto maior a especificidade, mais difícil é de mudar isso depois. Por isso é melhor chamar a ID apenas com "a" e modificar especificamente o que for necessário.*/
+            /*padding-top: 15px;
+            padding-left: 30px;
+            padding-bottom: 15px;*/
+            /*Poderiamos adicionar as margens conforme acima ou*/
+            padding: 15px 30px 15px 30px; /*adicionando assim o primeiro valor representa topo, segundo direita, terceiro baixo e quarto esquerda, sempre começa com o topo e roda sentido horário ou podemos adicionar apenas dois valores ficando o primeiro para topo e baixo e o segundo para esquerda e direita*/
+            font-size: 20px; /*Muda o tamanho da letra*/
+            text-transform: uppercase; /*Deixa tudo maíusculo*/
+            color:#fff; /*Essa cor não vai pegar pois estamos jogando ela no <h1> e a configuração de cor do Netflix está em <a>, portanto ela é inútil aqui*/
+        }
+        /*Como a cor não pegou na letra, precisamos usar um CSS para modificar apenas o link*/
+        
+        #heading a {
+            color:#fff; /*Quando jogamos a cor em <a> ela pega*/
+                text-decoration: none; /*tira o grifado feio*/
+                font-family: sans-serif; /*muda a letra da logo*/
+        /*Precisamos criar um espaço entre a logo e as bordas do header, porém como a é in-line, não podemos adicionar margem a ele.*/
+        }
+    </style>
+</head>
+<body>
+    <!--O menu começa pelo Header que tem o logo do NETFLIX e o botão de entrar-->
+    <header id="heading"> <!--Criamos um ID para poder estilizar esse header com o CSS em style no Head-->
+            <h1 class="h1"><a href="#">Netflix</a></h1> <!--Criamos a logo como um título principal da página e usamos <a> para linkar algo a essa logo-->
+            <h2 class="h1"><a href="#">Netflix</a></h1>
+    </header>
+</body>
+</html>
+
+<!--O importante nessa aula é mostrar como pensar em montar os seus elementos HTML, criando uma caixa, e dentro dessas caixas adicionar a logo.-->

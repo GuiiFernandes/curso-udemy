@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <mesta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atributos de id e class</title>
+    <!--Style é a TAG onde colocamos o CSS no HTML.-->
+    <style>
+        /*Quero selecionar as TAGs h1 para estilizar com CSS, para colocar um fundo vermelho, escrevo "h1" espaço cha*/
+        h1 { /*Entre chaves eu coloco qualquer coisa que quiser para estilizar todas as tags h1*/
+            background: red; /*Coloca o fundo veremelho, como está dentro da chave que se refere a estilização de todas as TAGS h1, todas vão ficar com o fundo vermelho*/
+        }
+        /*Em CSS existe especificidade (Força que esse seletor tem na página), onde algum estilo sobrescreva algum outro estilo já escrito*/
+        h1 {
+            background: blue;
+            /*Nesse caso ambos tem a mesma especificidade, sendo assim, o navegador nos mostra o último escrito (O que ele vê por último*/
+        }
+        /*Se eu quiser que o parágrafo tenha fundo verde eu posso fazer:*/
+        p {
+            background: green; /*Como o background blue de h1 sobrepõe a red, o título mantém em azul, porém o texto fica verde.*/
+        }
+        /* Para selecionar um id, basta colocar "#" antes e escrever o valor do id.*/
+        #cabecalho-um {
+            background: purple; /*Perceba que o título 1 ficou com fundo roxo, o 2 continuou em azul (que sobrepoe o red) e o texto continua verde.*/
+        }
+        /*As vezes você não precisa usar o elemento em si e seleciona a TAG ou pode usar uma classe para estilizar vários elementos.*/
+        /*Para selecionar CLASSE, você usa "." e depois o valor da classe desejada.*/
+        .fundo-vermelho {
+            background: red;
+        }
+        /*Como ambos os títulos possuem classe fundo-vermelho, ambos devem respeitar o código.
+        Porém, o id citado em # no código anterior é uma das especificidades mais fortes de CSS, então apenas o Título 2 mudou o fundo sobrepondo o azul escrito para h1 anteriormente.*/
+        /*Você pode forçar o navegador a soprepor um determinado estilo sobre outro, isso não é nem um pouco recomendado, mas pode ser feito.*/
+        .fundo-vermelho {
+            background: yellow !important; /*O comando "!important" vai fazer com que todos os elementos que tem a classe fundo-vermelho fique com o fundo amarelo.*/
+        }
+        .bold {
+            color: pink; /*Esse comando muda a cor da letra de todos os elementos com classe bold*/
+        }
+    </style>
+</head>
+<body>
+    <!--Título primário-->
+    <h1  id="cabecalho-um" class="fundo-vermelho borda-esquerda">
+    <!--Toda TAG pode ter um atributo, atributo "id" é o identificador da TAG-->
+    <!--As classes ("class") são identificadores de elementos assim como o ID, porém pode se repetir em vários elementos-->
+    <!--Sempre colocar valores em aspas, preferencialmente aspas dupla.-->
+        Título 1 
+    </h1> <!--Título primário-->
+    <!--O ID é único para a TAG e seu valor não pode se repetir em outra TAG-->
+    <h1  id="cabecalho-dois" class="fundo-vermelho">
+    <!--ID e CLASS são muito importantes para o CSS e JS, pois é pelo identifador ID ou de CLASSE que podemos selecionar o elemento e fazer algo com ele.-->
+        Título 2
+    </h1>
+    <p>Texto <b class="bold">qualquer</b></p> <!--Se eu colocar um texto qualquer um paragráfo o meu background de h1 não vai afetar esse texto-->
+    <!--<b> é pra colocar um texto em negrito-->
+    <!--Quando você cria uma classe para uma determinada TAG (class bold), você pode alterar o estilo de todos os elementos que tenham bold na class, veja como a partir do código em style a cor da letra em negrito muda-->
+    <p class="bold">Texto <b>qualquer</b></p>
+    <!--Note como o texto acima tem o fundo azul por ter a TAG <p> que no comando style deve ficar com fundo azul, tem todas as letras cor rosa por ter a class bold em p.
+    mas não tem como o class não esta em <b>, não é ele que fazer a parte em negrito ficar rosa e sim a classe em <p>-->
+</body>
+</html>

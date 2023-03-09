@@ -1,0 +1,94 @@
+html {
+    font-size: 62.5%;
+    scroll-behavior: smooth;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+body {
+    font-size: 1.6rem;
+}
+
+/*Grid é uma propriedade própria para criar grids ou grade. Como se fosse uma tabela.*/
+.grid {
+    display: grid; /*transforma minha div .grid em grid.*/
+    /*grid-template-columns: 50% 50%;*/ /*diz quantas colunas e qual o seu tamanho. Quando eu uso "50% 50%" estou dizendo que tenho duas colunas com 50% do tamanho da grid. Posso usar qualquer unidade de medida, porém usar % pode dar overflow na minha página. Então usamos principalmente fr. Como no exemplo abaixo.*/
+    /*grid-template-columns: 200px 1fr 1fr;*/ /*Neste exemplo usamos 3 colunas, sendo a primeira com medida de 200px e duas com 1fr.
+    fr é uma medida de proporção, sendo assim, 1fr significa que essa coluna vai usar 1 proporção do restante da página, como tenho 2 colunas com 1 fr, elas vão dividir o restante da página igualmente entre elas. Se eu uso "1fr 2fr" significa que a 3ª coluna vai ter 2x o tamanho da 2ª coluna.*/
+    /*grid-template-columns: 1fr 1fr 1fr;*/ /*Vamos usar nossa grid com colunas de tamanhos iguais.*/
+    /*Para facilitar um grid com um número grande de colunas uso a propriedade repeat() para dizer que uma determinada quantidade e tamanho de coluna vai se repetir. Posso usar:
+    grid-template-colums: repeat(3, 1fr 2fr) -> Estou dizendo que terei uma coluna com 1fr e uma com 2fr repetido por 3x, serão portanto 6 colunas por linha no total.*/
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); /*Essa forma de propor o grid é a mais responsiva. auto-fill é para a quantidade de coluna seja automatica, minmax() é para dizer que minha coluna vai ter no mínimo 320px e no máximo 1 fragmento. Tornando responsivo meu grid e evitando overflow.*/
+    /*Posso usar as mesmas configurações de colums para row, porém é menos comum de ser usado.*/
+    /*grid-template-columns: repeat(3, 1fr);*/ /*Vamos manter as colunas com largura padrão para entendermos melhor o grid-column-start e etc.*/
+    grid-template-columns: [um] 1fr
+    [dois] 1fr
+    [tres] 1fr
+    [quatro];
+    grid-template-rows: [um] 1fr
+    [dois] 1fr
+    [tres] 1fr
+    [quatro] 1fr
+    [cinco] 1fr
+    [seis] 1fr
+    [sete] 1fr
+    [oito];
+     /*Posso também dar nome as minhas linhas e colunas, lembrando que sempre conto uma a mais que representa o fim. portanto se tenho 3 colunas, vou contar 4, como se a quarta não tivesse medida e fosse a final.*/
+    /*Posso centralizar e dar um tamanho máximo para minha grid, para deixar ela esteticamente melhor visível para o usuário.*/
+    gap: 30px;
+    /*O Gap também cria um overflow. Gap pode ser usado com 1 parâmetro só que vale para linha e coluna ou dois parâmetros sendo o primeiro gap para linha e o segundo para coluna. "gap:" É uma forma resumida e pode ser por extenso:*/
+    /*column-gap: 30px;
+    row-gap: 30px;*/
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.grid div {
+    background: cyan;
+    border: solid rgba(0,0,0,0.2);
+    min-height: 100px;
+}
+
+/*Vamos agora mostrar como deixar um item do grid de tamanho diferente dos demais.*/
+/*.grid div:nth-child(5) {
+    background: darkred;
+    grid-column-start: 1;
+    grid-column-end: 4;*/
+    /*grid-column-start/end vai me dizer qual a coluna que inicia e qual termina meu item.*/
+    /*grid-row-start: 4;
+    grid-row-end: 6;*/
+    /*A mesma função de grid-column, porém para linha.*/
+    /*É importante ter atenção que essa propriedade pode ser ruim para a estética do grid, além de poder ter um erro caso dois itens tenham o mesmo início e fim, isso pode fazer com que um fique por cima do outro.*/
+/*}*/
+
+.grid div:nth-child(4) {
+    background: yellow;
+    grid-row: span 2; /*Essa propriedade diz que meu item 4 do grid, faz um span para ocupar duas linhas.*/
+    grid-column: span 2; /*Posso usar para coluna também.*/
+    /*Ele quebra linha quando tenta ocupar um espaço que já é ocupado por outro item.*/
+}
+
+/*Posso usar o @media para deixar meu item que ocupa um espaço maior mais responsivo a mudança de tamanho de display. Sendo assim, quando minha tela for muito pequena, meu item vai ocupar em coluna apenas 1 span do meu grid.*/
+@media (max-width: 768px) {
+    .grid div:nth-child(4) {
+        grid-column: span 1;
+    }
+}
+
+.grid div:nth-child(10) {
+    background: green;
+    /*grid-column-start: um; 
+    grid-column-end: quatro;*/
+    /*Assim posso usar o nome para dizer onde meu item vai iniciar ou acabar */
+    /*sgrid-column: um / quatro;
+    grid-row: 7 / span 2;*/
+    /*Posso também usar uma abreviação para column ou row e dizer que ela começa e/ou termina em uma determinada linha pelo nome ou número separando com a "/".*/
+    grid-area: seis / 2 /span 2 / quatro; /*Essa forma abreviada se refere a:
+    "grid-area: linha inicio / coluna inicio / linha final / coluna final;"*/
+    /*É uma forma muito específica de se usar, não é muito utilizado.*/
+}

@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atributos de Form pt2-4</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        }
+
+        label {
+            cursor: pointer; /*Muda o mouse de seta para maozinha ao passa o mouse por cima da Label.*/
+        }
+
+        #block {
+            cursor:pointer;
+            display: block; /*transforma o display em bloco.*/
+        }
+    </style>
+</head>
+<body>
+    <form action="#" method="get" target="_blank" autocomplete="off">
+        <p>O meu Formulário</p>
+        <p> <!--Dentro do link da aula anterior tenho vários campos específicos para meu formulário, quando eu não tenho esse campo, posso usar um campo de texto padrão, é a TAG <input> de type "Text". Que permite que o usuário digite um texto qualquer livre e envie.-->
+            <input type="text" id="nome" name="nome" placeholder="Seu Nome"/> <!--Tag input é autofechável, e dependendo do type, vai se comportar de forma completamente diferente.-->
+            <!--Assim como em todas as TAGs o id serve para ser um nome de referência daquela TAG e no input é importante para linkar o label com o input em si.-->
+            <!--O atributo name vai ser mais usado no backend. Quando esse formulário for enviado ao backend, quando ele receber o formulário essa TAG vai servir como uma chave para dizer referente a que é aquele valor digitado pelo usuário. Serve também como identificador e seletor como o id. Classe também pode ser usado para este fim.-->
+            <!--Atributo placeholder serve para deixar um texto visível dentro do input, antes do usuário digitar. Ao enviar o input sem preenchimento do usuário para o servidor, o placeholder é considerado um valor vazio. Portanto, nada vai para o servidor.-->
+            <!--Todo input tem um value, que nada mais é do que o que o usuário inseriu no preenchimento. Porém posso usar esse value como um atributo para ter uma função parecida com placeholder ou como um pré-preenchimento/preenchimento automático, que ao contrário do placeholder se o usuário não modificar o que está no input, será o valor enviado ao servidor.-->
+            <!--Exitem atributos sem valor como "Disabled" que tira a possibilidade de interação do usuário, readonly que o usuário pode interagir, mas não pode editar. Dentre outros.-->
+        </p>
+        <p>
+            <!--Muito importante semanticamente e visualmente, um label serve para dar um título ao seu input. E ele é clicável e linkável ao seu input.-->
+            <label> <!--Nesse primeiro exemplo vemos o input dentro do label, o que faz com que eles ficquem lado a lado, clicável e um recebe as estilizações do outro-->
+            <!--O ID CPF2 FOI CRIADO APENAS PARA QUE A ESTILIZAÇÃO DE LABEL NÃO SOBRESCREVA A ESTILIZAÇÃO DO ID CPF2, NÃO QUERIA QUE O BLOCO FOSSE APLICADO AQUI.-->
+                CPF:
+                <input type="text" id="cpf" name="cpf" placeholder="Seu CPF" required/> <!--Required que não vai permitir que o formulário seja enviado se um determinado input não for preenchido.-->
+            </label>
+            <!-- Na segunda forma podemos usar o label separado, e linkar ao input, isso nos dá mais flexibilidade na estilização de cada um e nos permite transformar a label em block no CSS, o que vai fazer com que a label tenha uma quebra de página.-->
+        </p>
+        <p>
+            <label for="rg1" id="block">RG:</label> <!--Usamos o atributo for="id de referência" para linkar as labels, os IDs em ambas as labels foram criadas só para utilizar CSSs diferentes para CPF e RG e visualizar como cada um se comporta com o display.-->
+            <input type="text" id="rg1" name="rg" placeholder="Seu RG"/>
+        </p>
+        <p>    
+            <label for="dev">Sou um dev</label> <!--Neste label perguntamos se o usuário é um desenvolvedor.-->
+            <input type="checkbox" id="dev" name="dev" value="sim" checked/> <!--Usamos um input de checkbox, porque ele só vai marcar se for, note como o input muda completamente. Este input não utiliza placeholder porquê não é uma caixa de texto.-->
+            <!--Name tem a mesma função e o value é importante, pois ao marcar a checkbox, é ele (junto ao name) que vai chegar no servidor.-->
+            <!--checked é um atributo usado para a checkbox já vir marcada originalmente, vários outros atributos podem ser utilizados como o required.-->
+            <!--Ambos os inputs trabalham com dados, porém são completamente diferentes.-->
+        </p>
+        <!--Podemos usar esse input para locais onde o usuário pode escolher várias opções simultaneamente.-->
+        <p>
+            Interesse vaga:<br>
+            <label for="estagio">Estágio</label>
+            <input type="checkbox" id="estagio" name="estagio" value="sim" checked/><br>
+            <label for="pleno">Pleno</label> 
+            <input type="checkbox" id="pleno" name="pleno" value="sim"/><br>
+            <label for="senior">Sénior</label> 
+            <input type="checkbox" id="senior" name="senior" value="sim"/><br>
+            <!--Neste caso o usuário pode se interessar nas 3 opções.-->
+        </p>
+        <!--Quando eu preciso que o usuário insira uma dentre várias opções usamos radio como type de input.-->
+        <p>
+            Gênero:<br>
+            <label for="feminino">Feminino</label>
+            <input type="radio" id="feminino" name="genero" value="feminino"><br> <!--O que difere radio do checkbox é que precisamos usar um name em comum para todos os inputs e usar valores diferentes para cada input-->
+            <label for="masculino">Masculino</label>
+            <input type="radio" id="masculino" name="genero" value="masculino" checked><br>
+            <label for="outro">Outro</label>
+            <input type="radio" id="outro" name="genero" value="outro"><br>
+        </p>
+        
+        <p>
+            <!--Input de Data pode ter só data (date), só hora (time) ou ambos (datetime-local).-->
+            <label for="data" id="block">Data:</label>
+            <input type="date" id="data" name="data" value="2021-10-17"/> <!--Note que tem um placeholder padrão, com um calendário ao lado para ajudar na seleção da data.-->
+            <!--Podemos usar value, caso queira que esse formulário já tenha um data pré-preenchida. É muito importante atentar-se para o formato da data, se o formato for diferente do que está acima, o navegador não lê e vai ficar errado.-->
+            <label for="hora" id="block">Hora:</label>
+            <input type="time" id="hora" name="hora" value="12:00:05"/> <!--O type time tem as mesmas especificidades de date-->
+            <!--Porém em hora posso especificar os segundos também, mesmo o padrão sendo hora e minuto.-->
+            <label for="datetime" id="block">Data-Hora:</label>
+            <input type="datetime-local" id="datetime" name="datetime" value="2021-10-17T12:00"/> <!--Datetime-local também tem essas especificidades.-->
+            <!--Lembrando que chamei id="block" apenas para estilizar o formulário em block-->
+        </p>
+        
+        <p>
+            <!--Input de cor também pode existir.-->
+            <label for="cor">Cor preferida:</label>
+            <input type="color" id="cor" name="cor" value="#ff0000"/> <!--O value de cor sempre tem que ser hexadecimal.-->
+        </p>
+
+        <p>
+            <!--Input de e-mail.-->
+            <label for="email" id="block">E-mail:</label>
+            <input type="email" id="email" name="email" placeholder="ex.: email@email.com"/> <!--No e-mail é legal ter o placeholder de exemplo.-->
+            <!--Esse formato se difere de uma caixa de texto comum, pois ele faz uma vaildação padrão se foi utilizado @ no preenchimento. É uma validação fraca, mas já é um início.-->
+        </p>
+
+        <p>
+            <!--Input de arquivo.-->
+            <label for="file" id="block">Foto:</label>
+            <input type="file" id="file" name="file" accept=".png,.svg,image/*" multiple/>
+            <!--O type file tem os atributos próprios:-->
+            <!--accept que é para filtrar os arquivos aceitos para envio. No exemplo acima dissemos que aceitamos arquivos png, svg e no terceiro qualquer arquivo com image/alguma coisa, como o jpg ou jpge. Todo arquivo de imagem tem image/alguma coisa. Esse filtro também é fraco, mas já ajuda.-->
+            <!--multiple que permite que você envie multiplos arquivos no mesmo formulário.-->
+
+        </p>
+
+        <p>
+            <!--Input de numero. Serve para o usuário te enviar um número qualquer. Não é para telefone.-->
+            <label for="numero" id="block">Número:</label>
+            <input type="number" id="numero" name="numero" placeholder="Nº" min="10" max="50" step="2"/>
+            <!--Aceita placeholder, mas dependendo do que se escreve e dos filtros pode comer ele.-->
+            <!--Podemos usar min e max para informar o valor mínimo e máximo aceito no input-->
+            <!--Podemos usar step também para informar de quanto em quanto nossos números vão pular.-->
+        </p>
+
+        <p>
+            <!--Input de senha. É um input de texto que não vai mostrar as letras ao digitar e sim bolinhas.-->
+            <label for="password" id="block">Senha:</label>
+            <input type="password" id="password" name="password" placeholder="Digite sua senha"/>
+        </p>
+
+        <p>
+            <!--Input de range. É um input de volume que você pode medir algum parâmetro do usuário.-->
+            <label for="range">Satisfação:</label>
+            <input type="range" id="range" name="range" min="0" max="10" step="2" list="range2"/>
+            <!--Aceita min e max, step e list que é um atributo para linkar o range a datalist-->
+            <datalist id=range2> <!--datalist é um atributo deveria dar medidas ao range. Porém ele não funciona direito e os valores não aparecem, no exemplo abaixo inserimos 5 valores em range, e deveria aparecer os números 0, 4, 6 e 10, porém não funciona.-->
+                <option value="0" label="0"> <!--Option para cada valor, value para expressar o valor ou local do range e label para mostrar o número, mas não funciona.-->
+                <option value="2">
+                <option value="4" label="4">
+                <option value="6" label="6">
+                <option value="8">
+                <option value="10" label="10">
+            </datalist>
+        </p>
+
+        <p>
+            <!--Input de URL. É um input de texto que faz uma validação fraca se o texto digitado é mesmo uma URL.-->
+            <label for="url" id="block">URL:</label>
+            <input type="url" id="url" name="url" placeholder="Digite uma URL"/>
+        </p>
+
+        <p>
+            <!--Input de Busca. É um input muito igual ao de texto porém além de ter uma semântica própria, o que é importante. Mas dá uma opção de x para apagar o texto digitado.-->
+            <label for="search">Pesquise:</label>
+            <input type="search" id="search" name="pesquisa" placeholder="Pesquise aqui"/>
+        </p>
+
+        <!--Os dois próximos não são input, mas tem função de transmitir alguma informação inserida pelo usuário para o nosso servidor ou gerar interação do servidor com os usuários.-->
+        
+        <p>
+            <label for="select">Quantos filhos:</label> <!--Insiro um label para linkar o que quero as opções-->
+            <select id="select" name="Filhos"> <!--multiple-->
+            <!--Chamo um select para o usuário selecionar com id (para linkar o label) e name (Qual o nome desse select dentro do servidor)-->
+            <!--Select também aceita multiple para selecionar multiplas opções. Isso também altera o estilo do input.-->
+                <optgroup label="Grupo filhos"> <!--Tem a função de criar grupos de opções-->
+                    <option value="0" label="Nenhum"> <!--Chamo uma option, para informar a primeira opção do meu select. Note que o value é o que o servidor vai receber quando o formulário for enviado, enquanto label é como o usuário vê essa opção.-->
+                    <option value="1">1-2</option> <!--Essa é outra forma de fazer, substituindo label pela escrita "1-2" fora da TAG e fechamento </option>. Esse fechamento não é obrigátorio, apenas se eu tiver o label fora da TAG.-->
+                    <option value="2" label="3-4" selected> <!--O atributo selected vai fazer com que a opção já esteja selecionada como pré-preenchimento-->
+                    <option value="3">4-5</option>
+                    <option value= "4" label="+5" disabled> <!--disabled Desabilita alguma opção do meu select-->
+                </optgroup>
+            </select>
+        </p>
+
+        <p>
+            <!--Textarea é um input de texto livre, pode ser escrito carta ou textos grandes como posts, livros e etc.-->
+            <label label="textarea" id="block">Descreva você:</label> <!--Usamos a label para linkar.-->
+            <textarea name="descrição" id="textarea" rows="5" cols="60">Descreva sua história em 300 caracteres</textarea>
+            <!--Recebe um name para o servidor e id para linkar com label. Tem fechamento.
+            O que fica escrito fora da TAG vai aparecer dentro da Textarea como pré-preenchimento. -->
+            <!--Apesar de ser facilmente editado com o CSS, por isso não é muito usado, aceita rows para quantas linhas vai ter na textarea e cols para quantos caracteres de coluna vamos ter. Porém é meio complexo esse calculo e pode sair desconfigurado.-->
+        </p>
+
+
+
+
+        <p><!--Adicionamos um botão ao nosso formulário-->
+            <!--button ele é uma TAG com corpo e 3 tipos, botão normal para fazer o que quiser. -->
+            <button type="reset">Reset</button> <!--E dentro do Form temos o reset e o submit. O primeiro para resetar (E se tivermos um value padrão para o input e o usuário modificar esse input. O Reset volta o preenchimento do input para o valor informado em value.)--> 
+            <button type="submit">Enviar</button> <!--e o segundo para enviar o formulário. Todos são informados através do atributo type-->
+        </p>
+        
+    </form>
+</body>
+</html>

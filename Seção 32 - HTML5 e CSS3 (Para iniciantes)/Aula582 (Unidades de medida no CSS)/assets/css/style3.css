@@ -1,0 +1,63 @@
+/*VH é mutio utilizado em uma lending page, onde um elemento ocupa a página toda e logo abaixo você tem outra página ocupando a tela inteira.
+Neste exemplo temos uma página só com 3 seções que formam 3 páginas em uma só. Como criamos neste exemplo.*/
+html { /*Primeiro criamos o root*/
+    font-size: 62.5%; /*Com a font-size padrão em 62,5%*/
+    scroll-behavior: smooth; /*Essa propriedade é para que a rolagem automatica da página, seja feita de forma suave. Porém não funciona em todos os navegadores.*/
+}
+
+* { /*seletor padrão que se aplica a todos os elementos da página*/
+    margin:0; /*reseto as margens*/
+    padding:0; /*reseto os paddings.*/
+    box-sizing: border-box; /*Para meu width/height contar conteúdo, padding e borda.*/
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif; /*fontes padrões usadas em todos os navegadores.*/
+    color:white; /*deixar todos os textos brancos por padrão.*/
+}
+
+nav { /*seletor para estilizar meu menu*/
+    font-size: 1.6rem; /*tamanho da fonte em 16px, só que em rem para se adequar ao navegador*/
+    background:black;
+    align-items: center; /*propriedade para alinhar os elementos do meu menu.*/
+    position: fixed; /*Fixa o meu menu pra ele aparecer sempre, mesmo rolando a página.*/
+    top: 0rem;
+    left: 0rem;
+    right: 0rem;
+}
+
+nav ul { /*seletor para estilizar minha lista.*/
+    display: flex; /*propriedade para colocar minha lista horizontal ao invés de vertical*/
+    list-style-type: none; /*Tira as bolinhas padrões da lista.*/
+}
+
+nav ul li a { /*seletor que edita o conteúdo dos links, é necessário se não link sobreescreve algumas estilizações.*/
+    text-transform: uppercase; /*deixa todas as letras maiusculas.*/
+    display:block; /*transforma o display do link em block-model.*/
+    text-decoration: none; /*tira o grifado padrão de link.*/
+}
+
+nav ul li { /*seletor para o itens do meu menu. Vou usá-lo para estilizar a distância entre as opções do meu menu.*/
+    padding: 1rem; /*padding de 10px em rem.*/
+}
+
+.color-one { /*seletor da classe que define o Título 1.*/
+    font-size: 1.6rem; /*tamanho da fonte padrão 16px=1.6rem.*/
+    width: 100vw; /*deixei a largura da página de 100% do meu viewport*/
+    height: 100vh; /*deixei a altura da página com 100% do tamanho do viewport*/
+    background: darkslateblue;
+    padding-top: 4.16rem;
+} /*Essa programação faz com que a div vire uma página.*/
+
+.color-two { /*faz a mesma coisa que o seletor anterior para o Título 2.*/
+    font-size: 1.6rem;
+    width: 100vw;
+    height: 100vh;
+    background: darkred;
+    padding-top: 4.16rem;
+}
+
+.color-three { /*faz a mesma coisa que o seletor anterior para o Título 3.*/
+    font-size: 1.6rem;
+    width: 100vw;
+    height: 100vh;
+    background: darksalmon;
+    padding-top: 4.16rem;
+}

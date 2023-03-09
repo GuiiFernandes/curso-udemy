@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tags HTML para texto, link, imagens..</title>
+    <style>
+        .img-in-text {
+            width: 70px;
+            height: auto;
+        }
+
+        .vermelho {
+            font-size: 24px;
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <!--Ao inpesionar o cabeçalho, clique em computed e depois visualize em Display que este cabeçalho está em formato de block-->
+    <!--TAGS em formato de bloco usam o espaço total para preenchimento, portanto ao inciar outra TAG em bloco a mesma originalmente
+    pula uma linha e fica a uma certa margem de distância do bloco anterior-->
+    <!--Quando uma determinada TAG é colocada dentro de outra, deve-se tomar cuidado com o display, pois algumas TAGS em block não aceitam outras
+    que também estejam em block. Pois algumas TAGs não podem ser colocadas dentro de outras.-->
+    <!--O <p> por exemplo, necessarimente deve conter um texto fluido, por isso geralmente não colocamos um Título <h> dentro de <p>
+    e sim Tags que tenham display in-line, fluidas, onde os caracteres ocupem apenas os espaços definidos.-->
+    <h1 style="background: red;">Cabeçalho 1</h1>
+    <!--podemos usar o style dentro de Tags para escrever um CSS referente a aquela TAG e estilizar apenas ela-->
+    <h1> Cabeçalho 2</h1>
+    <!--Note que Cabeçalho 2 não é afetado pelo style em cabeçalho 1-->
+    <p>
+        <!--Abaixo teremos TAGS in-line que pode ser usadas dentro de <p>-->
+        <b>Lorem</b> <strong>ipsum</strong>
+        <!--Tanto <strong>, quanto <b> deixam a palavra em negrito, porém strong é lógico tem semântica de alto nível de importância,-->
+        <i>dolor</i>
+        <!--Tem a mesma função semântica de bold <b>, porém para colocar em itálico-->
+        <em>aammooooo</em>
+        <!--Tem a memsma função semântica de dar ênfase em um texto. Estiliza o texo com itálico-->
+        <!--A semântica, é usar a TAG correta no local correto, para que tudo que leia seu site consiga entender da melhor maneira possível-->
+        <a href="https://developer.mozilla.org/pt-BR/docs/Web/HTML/Element/strong" target='_blank'>amet</a>
+        <!--TAG <a> é usada para colocar um link dentro do HTML-->
+        <!--Dentro de <a> deve ser usado o atributo href="" para se referenciar o link ou arquivo-->
+        <!--atributo target='_blank' abre o link em uma nova aba / atributo rel especifica a relação entre o documento que você está criando e o que está linkando e qualifica o link-->
+
+        <img src="https://cdn.dribbble.com/users/3123176/screenshots/8663531/dog_09.2_4x.png"
+            alt="Logo em desenho de Golden Retrivier" width="50" height="37">
+        <!--TAG que adiciona imagem ao HTML, o atributo src indica o link externo ou local da imagem,
+        o atributo alt é o texto alternativo da imagem. Serve para que um leitor alternativo visualize sua imagem.
+        width é o atributo de largura e height altura-->
+
+        <a href="https://developer.mozilla.org/pt-BR/docs/Web/HTML/Element/strong" target='_blank'>
+            <img class="img-in-text" src="https://cdn.dribbble.com/users/3123176/screenshots/8663531/dog_09.2_4x.png"
+                alt="Logo em desenho de Golden Retrivier">
+        </a>
+        <!--Note que foi criada uma classe para redimensionar a imagem linkada e ela foi estilizada através do CSS, poderia também usar o atributo style dentro da TAG para ter o mesmo efeito-->
+        <!--Pode-se também linkar uma imagem apenas colocando uma TAG <img> dentro de uma <a>-->
+        <!--A TAG <img> não tem corpo, portanto tudo que fica dentro dela é atributo e não precisa de TAG de fechamento-->
+        , <s>consectetur</s>
+        <!--Risca um texto, com semântica semelhante ao bold-->
+        <del>vermelho</del>
+        <!--Esse atributo deleta algo semanticamente, e estiliza com um risco no texto-->
+        <ins>azul</ins>
+        <!--Esse atributo inseri algo semanticamente, e estiliza com um grifado no texto-->
+        <u>adipisicing</u>
+        <!--TAG de underlline, semanticamente igual a bold-->
+        <small>elit.</small>
+        <!--Reduz o tamanho do texto-->
+        2<sup>2</sup>,
+        <!--Sobe e diminui o texto acima do nível normal, fazendo um efeito de elevado no número-->
+        H<sub>2</sub>O
+        <!--Desce e diminui o texto abaixo do nível normal, fazendo um efeito de fórmula química-->
+        <code>console.log</code>
+        <!--TAG que mostra que existe um texto de programação no HTML.
+        <code> pode ser usado em <p>, porém <p> tira todas os espaçamentos e quebras de linha do texto em code.-->
+        Pariatur officiis quibusdam quas voluptates magni quasi sint autem neque exercitationem id ut quia, tempora
+        repellendus voluptas animi repudiandae ea.<br>
+        <!--<br> Quebra linha-->
+        <br><q cite="https://developer.mozilla.org/pt-BR/docs/Web/HTML/Element/strong">Faz mais sentido mudar as
+            propriedades de apresentação de strong do que bold.</q><br>
+        <!--Essa Tag serve para citar algo ou alguém / Usa-se cities para anexar arquivo ou link original da citação-->
+
+    </p>
+    <p>
+        <span style="color: blue">Lorem</span>
+        <!--A TAG span é um conteiner genérico in-line que pode ser usado para estilizar qualquer coisa, sem que faça diferença semântica no texto.-->
+        ipsum dolor sit amet, consectetur adipisicing elit.
+        <!--Pode-se usar uma class dentro para estilizar vários <span> iguais-->
+        <span class="vermelho">Pariatur</span> officiis <span class="vermelho">quibusdam quas</span> voluptates magni
+        quasi
+        impedit sint autem neque exercitationem id ut quia, tempora repellendus voluptas animi repudiandae ea.
+        Perspiciatis.
+
+    </p>
+
+    <!--As próximas TAGS não podem ser usadas dentro de <p>, principalmente por serem TAGS que funcionam em bloco-->
+    <blockquote cite="https://developer.mozilla.org/pt-BR/docs/Web/HTML/Element/strong">
+        <p>Aqui sim eu estou fazendo um bloco de citação</p>
+    </blockquote>
+    <!--Essa TAG faz um bloco de citação com definição padrão do navegador, mas pode ser configurado como quiser. Também aceita o atributo cite=""-->
+    <!--O <blockquote> não pode ser feito dentro de <p>, porém <p> pode ser feito dentro de <blockquote>-->
+
+    <p>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur officiis quibusdam quas voluptates magni
+        quasi
+        impedit sint autem neque exercitationem id ut quia, tempora repellendus voluptas animi repudiandae ea.
+        Perspiciatis.
+
+    </p>
+    <hr>
+    <!--Essa TAG cria uma linha horizontal que separa dois parágrafos.-->
+    <pre><code> <!--Mais indicado pra usar com <code>-->
+        <!--Essa TAG em bloco é um parágrafo que leva em consideração todos os espaços e quebra de linha digitados no VS e que não aparecem no navegador quando usamos <p>-->
+let soma=0;
+
+inputsMais.forEach((input) => {
+    const valor = input.value;
+    const numero = Number(valor);
+
+    if (numero) {
+        soma += numero;
+    }
+
+    console.log(soma);
+});
+    </code></pre>
+    <div class="vermelho">
+        <!--TAG de conteiner genérico, ou seja, que não tem uma função específica (assim como <span>), porém é em bloco -->
+        Eu sou um bloco.
+    </div>
+    <!--Se você inspesionar div e span, vai ver que uma é display block e a outra inline, respectivamente. Dá para mudar, mas vem padrão assim.-->
+
+</body>
+
+</html>

@@ -1,0 +1,62 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+/*Unidades de medida servem para você determinar o tamanho das coisas em sua página.
+Existem centenas de unidades de medidas no HTLM e são separadas por absolutas e relativas.
+Absolutas são aquelas fixas, que não mudam com o display, que são baseadas em nada.
+Enquanto as relativas são as que se ajustam ao tamanho do display do dispositivo que o usuário acessa, é utilizado por padrão no navegador.
+Nos arquivos da aula tem a documentação com todas as medidas e suas classificações.
+Das unidades absolutas usamos apenas o pixel.*/
+p {
+    font-size: 20px; /*Usando medida em Pixel ela fica o tamanho da letra, não se ajustando caso o usuário mude o tamanho no navegador.*/
+}
+/*Das unidades de medida relativa vamos usar o em, rem, % e as de viewport.*/
+/*EM faz com que o elemento se comporte baseando-se no elemento pai mais próximo dele.*/
+.pai1 {
+    font-size: 50px;
+}
+.pai1 > p {
+    font-size: 0.5em; /*O tamanho absoluto da fonte vai ser basicamente o tamanho da fonte pai (50px) x os em da fonte filho (50x0,5=25px).*/
+}
+
+/*REM, é o mais utilizado atualmente, e faz com que o tamanho do elemento se baseie no elemento root do documento. O elemento root é o html.*/
+html {
+    font-size: 62.5%;
+}
+
+.p {
+    font-size: 1.6rem; /*o cálculo é igual ao em.*/
+}
+
+/*Para trabalhar com REM de forma inteligente, onde ele se pareça com pixel, porém permitindo que o usuário mude as configurações do navegador e todos os elementos da página, se comportem de forma relativa e não absoluta. Essa forma está em index2.html*/
+
+/*VW e VH, faz com que o tamanho seja medido em percentual do viewport, porém não usamos o %, sendo assim, 1vw/vh = 1% do viewport. Só que VW= ViewWidht (é o percentual da medida da largura da página) e VH= ViewHeight (é o percentual da medida da altura da página).*/
+.pai2 {
+    width: 100vw; /*A div tem 100% da largura do viewport, portanto independente do quanto a tela mude o tamanho a div vai ocupar toda a largura do display. */
+    height: 100vh; /*A div tem 50% da altura do viewport.*/
+    background: yellow;
+} /*VH é mutio utilizado em uma lending page, onde um elemento ocupa a página toda e logo abaixo você tem outra página ocupando a tela inteira. Fizemos um exemplo no index3.html*/
+
+/*%, mede o tamanho de um elemento em relação ao seu pai mais próximo, parecido com EM, porém usa o % na escrita enquanto em usa decimal para expressar a parte do pai. % também varia de 0 a 100% quando em pode fazer com que algo valha 2x o tamanho do pai, por exemplo*/
+.pai3 { /*Tenho a div pai com tamanho definido.*/
+    width: 40rem;
+    height: 100vh;
+    background: blue;
+    overflow: hidden;
+}
+
+.pai3 > div { /*Usar > no seletor, faz com que você estilize apenas o elemento a direita do sinal que é filho direto do elemento a esquerda do sinal.*/
+    width: 50%; /*E digo que a div filha possui 50% do tamanho de seu pai.*/
+    height: 20rem;
+    background: green;
+}
+
+/*VMIN e VMAX são as medidas percentuais inteiros do lado menor e maior, respectivamente, do meu viewport. Independente se é altura ou largura o menor/maior lado. vmin e vmax, vão relativizar de acordo com o lado menor/maior. Portanto, é uma forma muito dinâmica de medida.
+Se eu tenho um display cuja altura é maior e eu peço o vmax, a medida de vmax vai relativizar com a altura. Se eu mexer nesse display e a largura passar a ser o maior lado, o vmax vai relativizar com a largura e não mais com a altura. O vmin funciona da mesma forma..*/
+.p2 {
+    font-size:2vmax; /*Indica que a fonte tem que ser 2% do tamanho de vmax. Então se tenho uma tela 1000x500, a fonte vai ter 20px.*/
+} /*Ao modificar display note como o tamanho da fonte muda, note também que ao inverter que é maior entre altura e largura a referência do vmax também muda.*/

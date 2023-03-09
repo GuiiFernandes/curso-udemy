@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabela</title>
+    <style> /*Vou estilizar minha tabela para visualizar a marcação*/
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        }
+        
+        table {
+            border-collapse: collapse; /*Tag usada para unir as bordas das colunas*/
+            /*width: 100%;*/ /*Faz com que a tabela ocupe a largura total da página*/
+            width: 1700px;
+        }
+        
+        table td, table th { /*Chamo todas as tags td e th dentro da minha table.*/
+            border: 1px solid #ccc;
+            padding: 5px;
+            text-align: center;
+        }
+
+        table caption { /*CSS que chama o caption para estilização*/
+            caption-side: bottom; /*Seleciona o local da tabela onde o caption vai aparecer*/
+            text-align: right; /*alinhação do texto*/
+            font-style: italic; /*coloca o texto em uma forma, nesse caso itálico*/
+            font-size: 14px; /*tamanho da fonte*/
+            margin: 5px 0px; /*margem inferior de 5px para descrudar o texto da tabela*/
+        }
+        tfoot td, table th { /*Adiciona fundo ao cabeçalho e rodapé*/
+            background: #ddd;
+        }
+        tfoot td { /*Coloca apenas o rodapé em itálico.*/
+            font-style: italic;
+        }
+        .responsive-table { /*Para estilizar minha tabela ajustada a tela com rolagem primeiro chamo a classe da minha div.*/
+            max-width: 100%; /*Digo que minha tabela vai ter 100% da tela.*/
+            overflow: auto; /*atributo que vai dizer que se minha tabela passar do tamanho da tela, ela vai criar uma barrinha de rolagem dentro do navegador e permitir que a tabela mexa e caiba na tela sem prejudicar toda a página.*/
+            /*Isso faz com que o site tenha fluidez normal, porém a tabela fique dentro de uma espécie de caixinha.*/
+        }
+    </style>
+</head>
+<body>
+    
+     <p>Lorem ipsum dolor sit.</p> <!--Texto aleatório para ajudar a visualizar as configurações padrões de tabela-->
+     <div class="responsive-table"> <!--Div criada para configurar a rolagem da tabela em CSS no style, é usado quando a tabela é muito grande e não cabe em telas móveis, para que todo o site não desconfigure, usamos esse CSS na div para configurar uma rolagem no tamanho máximo da tela**-->
+        <table> <!--Table recebe coisas parecidas a um site, como cabeçalho, corpo e rodapé. Por isso já foi bastante utilizada como estrutura de sites-->
+            <caption>Descrição da Tabela.</caption>
+            <thead> <!--thead é o cabeçalho da minha tabela, é opcional pois o navegador pode fazer isso para nós. Mas para fazer da forma correta é bom ter.-->
+                <tr> <!--Tag de linha-->
+                    <th>Título 1</th> <!--Tag da coluna, como está em thead usamos th para mostrar que é um título, se estivesse fora usariamos <td>-->
+                    <th>Título 2</th> <!--Posso ter quantas colunas eu quiser-->
+                    <th>Título 3</th>
+                </tr>
+            </thead>
+            <tbody> <!--Tag usada para o corpo da tabela.-->
+                <tr> <!--Linha--> 
+                    <td>Corpo 1</td> <!--No corpo usamos <td> ao invés de <th>. Note que a estilização padrão já diferencia o que está contido em <th> de <td>-->
+                    <td>Corpo 2</td> <!--É importante usar a mesma quantidade de <td> no body que de <th> no head para que não haja buraco na planilha, é possível criar uma celula que ocupa lugar de duas.-->
+                    <td>Corpo 3</td>
+                </tr>
+                <tr> <!--Pode-se ter várias linhas no corpo de uma tabela.--> 
+                    <!--Para que uma celula ocupe duas colunas basta você ter apenas duas <td> dentro da linha <tr>-->
+                    <td colspan="2">AQUI</td> <!--E chamar o atributo colspan informando a quantidade de colunas que essa linha vai ocupar.-->
+                    <td>Corpo 3</td>
+                </tr>
+                <tr> <!--Pode-se ter várias linhas no corpo de uma tabela.--> 
+                    <td colspan="3">AQUI 2</td> <!--Podemos também ter uma célula em 3 colunas.-->
+                </tr>
+                <tr>
+                    <td>Corpo 1</td> 
+                    <td>Corpo 2</td>
+                    <td>Corpo 3</td>
+                </tr>
+            </tbody>
+            <tfoot> <!--É o rodapé da minha tabela, ele não tem nenhuma estilização especifica que o diferencie do body e por isso é pouco utilizado.-->
+                <!--Vai ser mais utilizado em casos que a pessoa queira que tenha um total ou algo similar.-->
+                <tr> <!--Assim como podemos ter uma celula ocupando duas colunas, podemos tê-la ocupando duas linhas ou mais.
+                A forma de usar é a mesma, porém usaremos o atributo rowspan-->
+                    <td rowspan="2" colspan="2"></td> <!--Nesse caso eu criei uma celula que ocupa duas linhas e duas colunas.-->
+                    <td>Total:</td> <!--Criei a 3ª coluna da linha-->
+                </tr>
+                <tr> <!--Depois criei a 2ª linha ocupada pela celula anterior. Se eu não criar essa linha, nada muda na minha tabela.-->
+                    <td>R$555,00</td> <!--Então criei uma terceira coluna para fechar e minha tabela-->
+                </tr> <!--Caso linhas e colunas não sejam criadas proporcionalmente, a tabela fica desconfiguradas -->
+            </tfoot>
+        </table>
+    </div>
+</body>
+</html>

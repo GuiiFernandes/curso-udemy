@@ -1,0 +1,38 @@
+<!--Escrever "!" no ínicio de um arquivo já escreve os atributos básicos necessários para se escrever um HTML-->
+<!--Ao usar esse recurso conferir a lang-->
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!--TAG para dispositivo móvel-->
+    <!--Viewport vai renderizar a página para o dispositivo móvel a partir da dimensão informada em content-->
+    <title>Estrutura do HTML e MetaViewPort</title>
+</head>
+<body>
+    <h1>HTML Aula 2</h1> <!--Tag de título principal-->
+    <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit.
+        Totam nihil quae repellat debitis, porro deserunt eos? <!--Observe como a quebra de linha na programação não fez diferença no navegador-->
+        Totam placeat amet similique magni animi aut autem rerum, maiores consectetur nihil, aspernatur accusamus?
+    </p> 
+    <!--Ao digitar "Lorem, o VS automaticamente disponibiliza um texto padrão aleatório para você"-->
+    <!--Tags de corpo que estilizam seu conteúdo precisam ser fechadas dentro da TAG mãe, exemplo <p>
+    Ao usar uma Tags que não estilizam o conteúdo como <span>-->
+    <p>
+        <span>Guilherme Fernandes</span>
+        <span>Guilherme Fernandes</span>
+        <span>Guilherme Fernandes</span>
+    </p>
+    <!--Note que no navegador o nome ficou lado a lado sem qualquer estilo.
+    Quando usamos Tags sem corpo para, por exemplo, estilizar o texto. Não precisamos preocupar com o fechamento dela-->
+    <p>
+        <span>Guilherme Fernandes</span><br>
+        <span>Guilherme Fernandes</span><br>
+        <span>Guilherme Fernandes</span><br>
+    </p>
+    <!--É o caso da TAG <br> (que quebra a linhda do texto) acima, observe que não há necessidade de fechar a TAG-->
+    <!-- <br> pode-se ser usado também para quebrar a linha se o texto estiver escrito junto, observe no navegador-->
+    <p>Guilherme Fernandes <br> Guilherme Fernandes</p>
+</body>
+</html>

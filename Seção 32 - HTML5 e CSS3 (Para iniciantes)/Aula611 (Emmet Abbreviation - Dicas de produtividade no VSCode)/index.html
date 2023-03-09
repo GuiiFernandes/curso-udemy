@@ -1,0 +1,73 @@
+<!--Emmet Abbreviation são abreviações que se utilizadas no VSCode te ajuda a melhorar sua produtividade economizando seu tempo codando.-->
+<!--Para usar o Emmet, basta que você escreva o código abreviado e clique em enter. Abaixo vamos ver os principais códigos utilizados-->
+<!--! = Para criar um cabeçalho, <!DOCTYPE html>, lang, <head> (com metas e title), body e </html> de fechamento.-->
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Emmet Abbreviation - Dicas de produtividade no VSCode</title>
+    <link rel="stylesheet" href="style.css"> <!--link:css = Cria um link para um arquivo css de sua escolha.-->
+    <!--Emmet pode ser usado em css, para não dificultar e precisar criar um arquivo vamos usar a tag <style>-->
+    <style>
+        body {
+            width: 100%; /*w100p = w: width | 100p: 100% (p é percentual)*/
+            height: 100vh; /*h100vh = h: height*/
+            margin: 10rem; /*m10rem* = m: margin*/
+            padding: 10px; /*p10 = p: padding | 10: quando não tem letra acompanhando o número significar pixel*/
+            display: flex; /*df = d: display | f: flex*/
+            display: grid; /*dg*/
+            display: none; /*dn*/
+            display: block; /*db*/
+            background: red; /*bg:red = bg: background*/
+            background-color: blue; /*bgc:blue*/
+            background-image: url(fdfs); /*bgi*/
+            box-sizing: border-box; /*bxz*/
+            top: 10rem; /*t10rem*/
+            position: relative; /*posr*/
+            float: right; /*flr*/
+            float: left; /*fll*/
+        }
+    </style>
+
+</head>
+<body>
+    <div class="classe-um classe-dois"></div> <!--div.classe-um.classe-dois = cria uma div, os . informam que após ele teremos classes com nome sendo o que estiver posterior ao ponto. No nosso caso criamos uma div com as classes "classe-um" e "classe-dois".
+    É um dos Emmet mais utilizados.-->
+    <div id="meu-id"></div> <!--Também funciona com id, sendo o seletor de ID o "#"-->
+    <section class="classe-um"></section> <!--section.classe-um = Pode ser utilizado com outros elementos como section, article, etc.-->
+    <div id="meu-id" class="minha-classe outraclasse"></div> <!--div#meu-id.minha-classe.outraclasse = A imaginação é o limite..-->
+    <div id="meu-id" class="minha-classe outraclasse">Conteúdo</div> <!--div#meu-id.minha-classe.outraclasse{Conteúdo} = Dentro de chaves posso digitar meu conteúdo também no Emmet.-->
+    <div id="meu-id-1" class="minha-classe outraclasse">Conteúdo 1</div>
+    <div id="meu-id-2" class="minha-classe outraclasse">Conteúdo 2</div>
+    <div id="meu-id-3" class="minha-classe outraclasse">Conteúdo 3</div>
+    <!--div#meu-id-$.minha-classe.outraclasse{Conteúdo $}*3 = Posso criar vários elementos iguais usando "*" e a quantidade de vezes que quero o elemento, assim como diferenciar estes conteúdos atráves de "$" dando um contador a cada elemento repetido.-->
+
+    <!--Também posso utilizar Emmet com ul-->
+    <ul>
+        <li>Conteúdo 1</li>
+        <li>Conteúdo 2</li>
+        <li>Conteúdo 3</li>
+        <li>Conteúdo 4</li>
+        <li>Conteúdo 5</li>
+    </ul> <!--ul>li{Conteúdo $}*5 = No caso da <ul> uso ">" Para dizer que <li> é um elemento filho de <ul>, que ele tem um conteúdo enumerado e que <li> repete 5x.-->
+    <ul>
+        <li><a href="http://link.com/conteudo-1">Conteúdo 1</a></li>
+        <li><a href="http://link.com/conteudo-2">Conteúdo 2</a></li>
+    </ul> <!--ul>(li>a{Conteúdo $}[href="http://link.com/conteudo-$"])*2 = "()" faz agrupamento, para que o *2 se aplique ao <li><a></a></li>, "[]" é o que usamos para atributos como href.-->
+
+    <!--A partir desses conhecimentos podemos por exemplo criar:
+    article.minha-classe#home>h1{Conteúdo Qualquer}+(p{Com qualquer conteúdo }>a{Clique aqui}[href="#home$"]+{ para saber mais})*2-->
+    <article class="minha-classe" id="home">
+        <h1>Conteúdo Qualquer</h1>
+        <p>Com qualquer conteúdo <a href="#home1">Clique aqui</a> para saber mais</p>
+        <p>Com qualquer conteúdo <a href="#home2">Clique aqui</a> para saber mais</p>
+    </article>
+    <!--No exemplo acima usei os conhecimentos apresentados acima juntamente com "+"= refere a um irmão ou continuação de um conteúdo.-->
+
+    <!--Quando uso Emmet sem conteúdo, ele fica mais curto e simples. Depois posso ir adicionando o conteúdo escrevendo em um lugar e apertando tab para ir para o próximo.-->
+</body>
+</html>
+
+<!--Existe uma lista com todas as abreviações de Emmet na aula.-->

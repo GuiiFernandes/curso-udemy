@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<!--Os sites mais famosos sobre HTML e CSS é o site da W3School e o DVM-->
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Listas</title>
+    <style>
+        *{ /*Tiro toda a estilização das listas.*/
+            margin: 0;
+            padding: 0;
+        }
+
+        nav {
+            /*height: 50px;*/ /*Ao desativar a medida forçada de nav. Nota-se que um problema do tamanho da minha nav e dos botões do meu menu surge, isso torna necessária a insersão de "display: block" em nav*/
+            background: red; /*lembrando que rgba é r-red, g-green, blue-azul e a-opacidade sempre menor que 0*/
+            display: flex; /*coloco meu display flexível e depois*/
+            align-items: center; /*Alinhei verticalmente meu menu ao meio da nav verticalmente.*/
+            /*Poderia ter usado "justify-content: center;" para alinhar o meu menu ao centro da página horizontalmente, mas esse não é meu objetivo.*/
+        }
+        
+        /*Estilização de links sobrepões qualquer outra estilização, portanto se eu tentar modificar o meu menu estilizando <nav>, <ul> ou <li> as estilizações padrões de a se sobresairão*/
+        body nav ul li a { /*Neste caso eu estilizo <a> diretamente, usei a forma mais detalhada de citar <a> no CSS, porém poderia ir desde "nav ul li a" até apenas "a", onde quanto mais detalhe, mais específico é minha alteração e onde tem menos detalhe mais abrangente é as estilizações. Neste segundo todas as estilizações feitas serão aplicadas em todos os <a> do arquivo.*/
+            color: #fff;
+            text-decoration: none; /*Tira a decoração de traço quem vem por padrão em baixo do link*/
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif; /*Font family que a abrange a de todos os sistemas operacionais usados atualmnete.*/
+            padding: 10px 20px;
+            /*Quando eu modifico a estrutura de <a> com margem e padding, devo ter atenção pois <a> genericamente possui um display in-line, portanto elementos como padding, podem atrapalhar o design da página, sendo necessário coloca um "display: block;" para que ele se comporte em bloco e respeite rigorosamente seu padding e margin.
+            Nessa programação não tivemos esse problema pois o mesmo herda a configução de uma tag superior.*/
+            display: block;
+            /*Note que um elemento in-line só vai resguardar o espaço onde o texto está inserido, todo o resto do espaço do elemento vai se misturar aos demais. Já quando temos um elemento in-block, todo o espaço do elemento, como conteúdo, margin, border e padding. São respeitados e os demais se adequeam a eles.*/
+            text-transform: uppercase; /*transforma o texto em maiúsculo.*/
+        }
+
+        nav a:hover { /*Quando eu uso hover, significa que o estilo descrito só vai ser aplicado quando eu passar com o mouse por cima do elemento.*/
+            background: rgba(0,0,0,0.3); /*Neste caso teremos um efeito de como se o vermelho estivesse mais escuro ao passar o mouse no menu*/
+        }
+
+        nav ul {
+            display: flex; /*serve para mudar a organização de vertical (padrão), para horizontal.*/
+            /*para o mesmo efeito acima posso usar também "flex-direction: row;"*/
+            list-style-type: none; /*pode ser abreviado apenas como "list-style: none;*/
+            margin-left: 10px;
+        }
+    </style>
+</head>
+<body>
+    <!--Podemos usar <aside> ao invés de <nav>, porém <aside> é mais para sidebars, barras laterais, enquanto <nav> para barras de navegação horizontal-->
+    <nav> <!--Lembrando que a <nav> é a Tag usada para navegação, é ela que usamos quando quisermos criar um menu.-->
+        <ul> <!--Listas não ordenadas são normalmente usadas para fazer menus.-->
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Products</a></li>
+        </ul>
+    </nav>
+
+    <ul> <!--Lista não ordenada, essa lista não leva números ao lado e é usada quando nossa lista não tem uma ordem específica-->
+        <li> Item 3</li> <!--Dentro da lista não ordenada temos os Itens da listas que são semanticamente demonstrados por <li>-->
+        <li> Item 1</li> <!--Pode-se ter quantos itens quiser na ordem que quiser.-->
+        <li> Item 2</li>
+    </ul>
+
+    <ol type="A" start="3"> <!--Lista ordenada, essa lista leva números ao lado e é usada quando nossa lista tem uma ordem específica-->
+        <!--Listas ordenada podem receber o atributo Type que define qual tipo de marcação que dará ordem na lista-->
+        <!--O Atributo Start, vai definir qual o valor inicial da lista-->
+        <li> Item 3</li> <!--Dentro da lista ordenada temos também os Itens da listas que são semanticamente demonstrados por <li>-->
+        <li> Item 1</li> <!--Pode-se ter quantos itens quiser na forma que quiser.-->
+        <li> Item 2</li>
+    </ol>
+
+    <dl> <!--Lista com descrição ou Description List, é uma lista onde cada item possui uma breve descrição-->
+        <dt>Café</dt> <!--<dt> nos dá o item da lista-->
+        <dd>Bebida preta e quente</dd> <!--Enquanto <dd> é a descrição-->
+        <dt>Água</dt>
+        <dd>Bebida transparente e fria</dd>
+    </dl>
+    <!--Enquanto <ul> e <ol> recebe <li>, <dl> recebe <dt> e <dd>.-->
+    <!--No caso de navegações utilizamos na maioria dos casos <ul>-->
+</body>
+</html>

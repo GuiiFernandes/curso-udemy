@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pensando em HTML e CSS</title>
+</head>
+<body>
+    <!--Quando eu coloco uma div vazia na página, a mesma não mostra nada.
+    Entrando em inspecionar no navegador, veremos que existe uma div vazia porém ela tem um estilo pré-determinado. teremos uma margem e uma altura.-->
+    <!--Portanto, posso estilizar essa div através do atributo style, para ela se tornar visível. -->
+    <!--1- Primeiro usei width para colocar uma largura na minha div, usei a medida em pixel para facilitar, mas existem medidas melhores.
+    2- Usei height par definir a altura da página e fazer uma imagem quadrada
+    3- Coloquei um background para dar cor ao fundo da div e tornar ela visível
+    4- Posso colocar elementos dentro dessa div, nesse caso usei "Text"-->
+    <div style="width: 180px; height: 120px; background: red; float: left">
+        <div style="width: 60px; height: 60px; background: yellow; float:left"></div>
+        <!--Posso criar uma div com estilo diferente dentro de outra div e o mesmo vai sobrescrever a de fora, nesse exemplo, vai ficar uma caixa dentro de outra caixa-->
+        <div style="width: 60px; height: 60px; background: blue; float: left"></div>
+        <!--Posso criar quantas caixas eu quiser, ficando duas caixas dentro de uma caixa.-->
+        <!--Note que ao criar mais uma caixa, ela vai ficar abaixo da primeira caixa, isso acontece porque eu não especifiquei como eu gostaria que essas caixas se posicionassem e por padrão, div e qualquer outro elemento de estrutura são box ou caixa a quebrar linha.-->
+        <div style="width: 60px; height: 60px; background: green; float: left"></div>
+        <!--Float é uma forma antiga de flutuar uma div para a esquerda.-->
+        <div style="width: 120px; height: 60px; background: purple; float: left"> <!--Note como crio caixas dentro da Div com diversas dimensões para formar minha página-->
+            <p style="width: 40px; height: 30px; background: seashell;"> abc</p>
+            <!--Podemos inserir um parágrafo dentro de uma div, para criar uma caixa em nossa página, porém isso não é recomendado como TAG estrutural, pois <p> já vem com vários estilos pré-escritos que podem atrapalhar a configuração visual da página-->
+        </div>
+    </div>
+    
+</body>
+</html>

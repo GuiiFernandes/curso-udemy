@@ -1,0 +1,28 @@
+<!--A estrutura pode ser criada com "!" ou "html:5"+enter-->
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Navegador vs. Node (HTML + JavaScript)</title>
+    <!--<script> é a Tag que permite incluir uma programação js dentro do html.
+        Pode ser usada no <head>, mas não é a melhor prática, visto que o navegador vai executar todo js antes de exibir a página.
+        Sendo assim é mais recomendado que o <script> seja escrito no final do <body>.-->
+
+</head>
+
+<body>
+
+    <script>
+        //Dentro de script posso escrever minhas programações em linguagem js que elas serão executa
+        console.log(`Olá mundo!`);
+        console.log(`Este trecho será exibido no console do navegador`);
+        // Códigos em js dentro de html não são exibidos na página, apenas no console do navegador.
+    </script>
+    <!--Porém, usar js dentro do html pode deixar o código extenso e confuso. Para isso usamos um link para chamar o js dentro do html.-->
+    <script src="assets/js/navegador_vs_node.js"></script> <!--Isso vai chamar a programação do arquivo .js na pasta -->
+</body>
+
+</html>

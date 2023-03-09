@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Separando HTML e CSS em arquivos diferentes.</title>
+    <!--Existem várias formas de chamarmos a TAG <style> dentro do nosso HTML, como já no Head.-->
+    <style>
+        .caixa1{
+            background: red;
+            height: 120px;
+            width: 120px;
+        }
+    </style>
+    <!--Para chamar um css de outro arquivo dentro deste primeiro eu preciso linkar esse css dentro de index.-->
+    <link rel="stylesheet" href="./assets/css/style.css"> <!--Chamo uma TAG link, com atributo rel="stylesheet", onde StyleSheet é o SS do CSS. E coloco a referência de onde está meu arquivo no href.-->
+    <!--Lembrando que esse arquivo pode ser externo, online, atráves de uma url. Ou pode ser um caminho relativo (caminho a partir da pasta onde está o arquivo index, a raiz do meu projeto.)-->
+    <!--Para chamar a pasta é bom, mas não obrigátorio, chamar ./ antes de começar a especificar as pastas, pois ele vai dizer que é pra partir da pasta onde este arquivo (index) está.-->
+    <!--Podemos chamar vários CSSs em um único HTML. Mas é importante lembrar que o CSS que for chamado por último sobrescreve os chamados primeiros.-->
+    <link rel="stylesheet" href="./assets/css/exemplo.css">
+    <!--Para o navegador é mais interessante fazer uma requisição só de leitura do seu CSS, isso melhora o desempenho do site, pois se for feito em vários arquivos, para cada css o navegador vai fazer uma requisição de leitura do arquivo.-->
+    <!--O importante é sempre manter a estrutura das pastas do site, pois assim independente de onde você movimente index e assets, você nunca vai perder a estilização no seu site.-->
+</head>
+
+<body>
+    <div class="caixa1">1</div> <!--Opte por preferência referenciar uma tag pela class.-->
+    <!--É comum também vermos a tag <style> antes da tag que queremos estilizar-->
+    <style>
+        .caixa2{
+            background: blue;
+            height: 120px;
+            width: 120px;
+        }
+    </style>
+    <div class="caixa2">2</div>
+    <!--Ou podemos chamar style dentro da própria div-->
+    <div style="background: green; height: 120px; width: 120px;">3</div>
+    <!--Porém a melhor forma de fazer é criando um arquivo CSS separado, criando todos as estilizações do site e depois chamando independente em cada página.-->
+    <!--Para isso começamos a introduzir nesta aula a estrutura usual de um site. Onde dentro da pasta principal eu tenho uma pasta assets, que são os recursos que vamos utilizar dentro de nosso site. Dentro dessa pasta temos js (onde estará os arquivos de JavaScript), a pasta img (que fica as imagens do site) e css (que fica nossas estilizações ou o arquivo de estilização)-->
+    <!--Dentro da pasta CSS, crio um arquivo "Styles.css" e jogo meu CSS lá para dentro sem utilizar a TAG <style>.-->
+    <div class="caixa">4</div>
+    <div class="caixa3">5</div>
+</body>
+</html>

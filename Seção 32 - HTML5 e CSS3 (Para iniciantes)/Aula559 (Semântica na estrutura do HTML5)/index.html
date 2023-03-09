@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Semântica na estrutura do HTML5</title>
+</head>
+<body>
+    <header> <!--Semântica - Cabeçalho-->
+        <h1> <!--Semântica de importância - Título-->
+            <a href="#">Home</a> <!--Link, que seria uma logo--> 
+        </h1>
+        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Necessitatibus ipsam inventore sint suscipit? Corrupti, a labore eligendi unde quia tempora nam accusantium vero, quidem autem, necessitatibus vel iure ipsum inventore!</p> <!--Podemos colocar algum outro conteúdo dentro do meu cabeçalho, alguma descrição por exemplo.-->
+        <div>Alinhar algo</div> <!--Essa div é para alinhar algo, veremos posteriormente-->
+    </header> <!--Essa é a parte principal do meu site. Inicial-->
+    
+    <aside> <!--Menu lateral, side bar-->
+        <nav> <!--semântica de navegação, pois temos vários links-->
+            <ul> <!--Lista não ordenada-->
+                <li><a href="#">Item 1</a></li> <!--li para cada item da minha lista com a para referenciar o link-->
+                <li><a href="#">Item 2</a></li>
+                <li><a href="#">Item 3</a></li>
+            </ul>
+        </nav>
+    </aside>
+    
+    <section> <!--Seção qualquer do meu site, não usei main pois vou ter várias seções similares-->
+        <header> <!--Posso ter outro Header dentro de uma seção, nada impede que eu tenha cabeçalhos dentro de quantas seção da minha página eu quiser além do cabeçalho inicial-->
+            <h2>Roupas femininas</h2>
+            <!--Usamos h2 pois H1 já é o Título inicial da página enquanto esse vai ser o secundário de uma seção-->
+            <!--O mais indicado é sempre deixar o H1 para o título mais importante da página-->
+        </header>
+        <!--Note que ao validar o arquivo se você não colocar um <h> dentro de <section> ou <article> vai aparece um warning amarelo, -->
+        <article>
+            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Repellat, quas repellendus modi sunt commodi dolorum quia. Quod ducimus pariatur hic quisquam repellat quia, fugit neque quos est molestiae esse alias!</p>
+        </article>
+
+        <article>
+            <h3>Produto 2</h3> <!--Por isso é importante colocar um <h> ou <header> dentro da section ou article-->
+            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Repellat, quas repellendus modi sunt commodi dolorum quia. Quod ducimus pariatur hic quisquam repellat quia, fugit neque quos est molestiae esse alias!</p>
+        </article>
+        <!--Posso repetir quantos Articles eu quiser para indicar cada produto da minha loja.-->
+        <article>
+            <h3>Produto 3</h3>
+            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Repellat, quas repellendus modi sunt commodi dolorum quia. Quod ducimus pariatur hic quisquam repellat quia, fugit neque quos est molestiae esse alias!</p>
+        </article>
+        <!--Posso também repetir quantas section eu quiser, quando por exemplo eu tiver uma outra categoria de produtos.-->
+    </section>
+    <section>
+        <header>
+            <h2>Calçados femininos</h2>
+        </header>
+        <article>
+            <h3>Produto 1</h3>
+            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Repellat, quas repellendus modi sunt commodi dolorum quia. Quod ducimus pariatur hic quisquam repellat quia, fugit neque quos est molestiae esse alias!</p>
+        </article>
+
+        <article>
+            <h3>Produto 2</h3>
+            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Repellat, quas repellendus modi sunt commodi dolorum quia. Quod ducimus pariatur hic quisquam repellat quia, fugit neque quos est molestiae esse alias!</p>
+        </article>
+
+        <article>
+            <h3>Produto 3</h3>
+            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Repellat, quas repellendus modi sunt commodi dolorum quia. Quod ducimus pariatur hic quisquam repellat quia, fugit neque quos est molestiae esse alias!</p>
+        </article>
+    </section>
+    <!--Posso ter também section dentro de article, isso permite-->
+    <article>
+        <h2>Todas as Categorias</h2>
+        <section>
+            <header> <!--Posso colocar <header>, cabeçalhos dentro das section, que estão nos articles também.-->
+                <h3>Roupas Femininas</h3>
+            </header>
+        </section>
+        <section>
+            <header>
+                <h3>Calçados Femininos</h3>
+            </header>
+        </section>
+        <!--Lembrando de colocar <h> em todos para não dar o warning-->
+    </article>
+    <!--Lembrando que a section é usado quando eu não tenho algo semântico para falar. Quando não é um artigo (article), post, cabeçalho (header). Quando você não tem como descrever essa seção, usa-se section ou div. Ambos são containers, mas section é mais moderno.-->
+
+    <div>
+        <article>
+            <header>
+                <h2>Header</h2> <!--Sempre use <h> dentro de um Header-->
+            </header>
+            <div>Oi</div> <!--Note que posso usar uma div dentro até mesmo de outra div-->
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo praesentium, obcaecati eveniet aperiam sed animi non iste fuga cupiditate blanditiis in quo dolorum molestias officia laboriosam cumque? Perferendis, recusandae illum!</p>
+            <footer> <!--Rodapé, tanto para uma seção (section ou div), quanto para a página-->
+                Rodapé
+            </footer>
+        </article>
+    </div>
+    <!---->
+    <footer> <!--Como o Footer é um rodapé para qualquer lugar, ele vai sempre acompanhar o parente mais próximo, portanto nesse exemplo, ele acompanha o body-->
+        Meu endereço
+    </footer>
+</body>
+</html>

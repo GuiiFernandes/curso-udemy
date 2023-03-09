@@ -1,0 +1,27 @@
+@charset "UTF-8";
+@font-face { font-family:"Glacial Indifference";src:url("#FontID2") format(svg)}
+@font-face { font-family:"Arial Black";src:url("#FontID1") format(svg)}
+@font-face { font-family:"Forte";src:url("#FontID0") format(svg)}
+.str1 {stroke:#CA7486;stroke-width:200}
+.str0 {stroke:#FEFEFE;stroke-width:20}
+.str2 {stroke:#373435;stroke-width:20}
+.fil5 {fill:none}
+.fil10 {fill:#FEFEFE}
+.fil15 {fill:#373435}
+.fil9 {fill:#CA7486}
+.fil3 {fill:#211E20}
+.fil12 {fill:#403C39}
+.fil8 {fill:#403C39}
+.fil4 {fill:#8C8B8C}
+.fil1 {fill:#9CBBBD}
+.fil14 {fill:#9CBBBD}
+.fil2 {fill:#373435;fill-rule:nonzero}
+.fil11 {fill:#F7A39E;fill-rule:nonzero}
+.fil7 {fill:#CA7486;fill-rule:nonzero}
+.fil6 {fill:#403C39;fill-rule:nonzero}
+.fil0 {fill:#373435;fill-opacity:0.501961}
+.fil13 {fill:#373435;fill-opacity:0.501961}
+.fnt2 {font-weight:normal;font-size:243.79px;font-family:'Glacial Indifference'}
+.fnt0 {font-weight:normal;font-size:452.52px;font-family:'Forte'}
+.fnt3 {font-weight:normal;font-size:454.76px;font-family:'Glacial Indifference'}
+.fnt1 {font-variant:small-caps;font-weight:900;font-size:311.07px;font-family:'Arial Black'}

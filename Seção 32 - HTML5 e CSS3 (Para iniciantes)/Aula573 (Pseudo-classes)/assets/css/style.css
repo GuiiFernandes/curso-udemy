@@ -1,0 +1,73 @@
+*{
+    margin:0;
+    padding: 0;
+}
+
+/*Pseudo-classes são palavras-chave adicionada a seletores que especifica uma reação do site a uma ação do usuário.*/
+.heading:hover { /*Nesse caso eu disse que ao passar o mouse (:hover) em um elemento que tenha classe heading (.heading)...*/
+    background: blue; /*o fundo (background:) ficará azul (blue*).*/
+}
+
+/*Posso estilizar ainda mais isso dizendo que:*/
+.heading { /*chamo o seletor heading, para dizer onde ocorrerá a estilização*/
+    transition: all 600ms ease-in-out; /*transition é a abreviação para transition-property (a quem se aplica), transition-duration (quanto tempo dura), transition-timing-function (como vai ser feita a transição) e transition-delay (quanto tempo esperar para fazer a transição) /TRANSITION DEVE SER PREENCHIDO NESSA ORDEM/ e é a transição entre dois estados de um elemento.*/
+} /*nesse exemplo eu disse que quero que todos (all) elementos com a classe heading (.heading) ao mudar de estado tenham uma transição (transition) com duração de 600ms (600ms) e efeito ease-in-out (ease-in-out), delay não foi usado nesse exemplo.*/
+/*Transition não funciona com todas as propriedas do CSS, mas com o background é muito interessante de ver.*/
+
+a { /*dei cor ao link, abaixo propriedades CSS que atribuem a link.*/
+    color:darkorange;
+}
+
+/*Quando quero estilizar um link que não foi clicado uso ":link {"*/
+a:link {
+    color:deeppink;
+}
+
+/*Quando quero estilizar os links já visitados uso ":visited"*/
+a:visited {
+    color: firebrick;
+}
+
+/*Posso também mudar um link quando eu passar o mouse sobre ele..*/
+a:hover {
+    background: darkslateblue;
+    color: white;
+    text-decoration: none;
+}
+/*Essa propriedade é para modificar a estilização enquanto o link estiver clicado (clica e segura para ver).*/
+a:active {
+    background: darkslategray;
+    color: white;
+    text-decoration: none;
+}
+
+/*Existem propriedades para input também.*/
+input:focus { /*Quando meu input estiver focado (selecionado).*/
+    box-shadow: 0 0 5px rgba(0,0,0,0.5); /*Vou aplicar uma sombra inferior de 5 px na caixa com cor preta e transparência de 0.5*/
+    outline: none; /*Tira o outline padrão*/
+    border: 1px solid black; /*borda em todos os lados de 1px solida, preta.*/
+}
+
+/*Posso também estilizar um atributo a partir do meu atributo dizendo que:*/
+input:disabled { /*Estilizar todos os inputs desabilitados com*/
+    background: red; /*com fundo de cor*/
+    cursor:not-allowed; /*Ao passar o cursor por cima de um input desabilitado, o cursor fica de proibido (circulo com um traço diagonal).*/
+}
+
+input:checked { /*Quando eu clicar em um input, o botão muda de tamanho. Pode ser usado com unchecked*/
+    width: 20px;
+    height: 20px;
+}
+
+/*A partir da mudança de estado de um elemento, posso mudar outro próximo usando o Adjacent sibling selector*/
+input:checked + p { /*Como temos um <p> logo após o input e dizemos com o + que vou estilizar meu <p>, quando meu input for checked. Como usei o seletor de +, apenas o primeiro <p> após o input selecionado recebe a estilização quando houver mudança de estado.*/
+    background: red;
+}
+
+.pai .lista li:first-child { /*Estiliza o primeiro filho de uma lista com .pai sendo a classe de ul e .lista a de li.*/
+    background: red;
+} /*Posso usar last-child para selecionar o último filho.*/
+
+input:required { /*input que for requerido recebe a estilização.*/
+    background: red;
+}

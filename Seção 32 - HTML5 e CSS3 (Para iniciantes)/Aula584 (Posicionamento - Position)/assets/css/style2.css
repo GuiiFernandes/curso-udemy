@@ -1,0 +1,26 @@
+html {
+    font-size: 62.5%;
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+li {
+    font-size: 1.6rem;
+}
+
+/*O position sticky serve para que você faça cabeçalhos dinâmicos, ele vai fazer com que ao rolar a página um elemento fique fixo até ele chegar em outro elemento com a mesma position. Neste exemplo fizemos*/
+ul { /*Selecionamos a lista não ordenada.*/
+    height: 13rem; /*Colocamos 130px de altura.*/
+    overflow-y:auto; /*adicionamos um overflow: auto para ter uma barra de rolagem automática*/
+}
+
+ul li.sticky { /*selecionamos os itens da lista com classe sticky*/
+    position: sticky; /*demos a ela a position sticky*/
+    background: gray; /*Adicionamos um fundo para ver melhor.*/
+    top: 0; /*E dizemos que ela vai ficar no topo da da div.*/
+}

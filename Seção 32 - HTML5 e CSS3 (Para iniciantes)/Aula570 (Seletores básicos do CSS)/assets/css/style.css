@@ -1,0 +1,21 @@
+/*Principais seletores do CSS*/
+* { /*Seletor all, esse seletor vai modificar todas as tags da página. É muito usado para resetar alguma pré-definição indesejada do navegador.*/
+    margin 0;
+    padding: 0;
+}
+
+/*Seletor por TAG, é só escrever o nome da TAG que você já estiliza tudo que tem aquela determinada TAG.*/
+h1,
+p { /*podemos utilizar , para selecionar mais de uma Tag com o mesmo estilo.*/
+    color: red;
+}
+
+/*Podemos aumentar a especificidade de qual TAG eu quero estilizar usando a suas TAGs superiores ou descendentes. Isso chama seleção de dependentes*/
+body div section p,
+body div h2 { /*Na seleção de depndentes também posso utilizar , para usar o mesmo estilo para vários descendentes.*/
+    background: cyan; /*Ao mudar o fundo das tags <p>, note que <p> que está fora de section não foi estilizado. Note que para estilizar h2 eu não usei a descendente <section> e mesmo assim ela foi estilizada. Portanto, quanto mais próximo a tag superior estiver do que queremos mudar, mais específico será a mudança.*/
+}
+
+/*No VS Code, ao passar o mouse no seletor aparece a tag que estamos querendo estilizar, a descendencia e a especificidade da alteração.*/
+/*É sempre melhor usar como seletor class ou id. Pois muda especificamente aquele elemento, deixando os demais que utilizam tags genericas como <p> sem a mesma estilização.*/
+/*continuação em index2 e style2*/

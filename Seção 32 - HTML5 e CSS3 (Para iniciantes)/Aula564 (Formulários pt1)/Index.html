@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulários pt1</title>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        }
+    </style>
+</head>
+<body>
+    <section> <!--Normalmente usamos uma section antes de Form, pra informar que essa é a seção formulário.-->
+    <!--Form é um bloco de conteúdo, que recebe outros blocos. Ele é um formulário que recebe informações externas (inputs) e pode ter outras Tags como <header> <section>, <div> e <footer> dentre outras.-->
+    <!--É proibido aninhar um formulário dentro do outro, não se pode colocar um formulário dentro de outro.-->
+        <form action="#" method="get" target="_blank" autocomplete="off"> <!--Form por si só já vem com configurações padrões, porém é importante usar alguns atributos dentro dele.-->
+        <!--Action é o atributo de Form que indica a descrição para o navegador de para onde o formulário vai.-->
+        <!--method é o atributo de método do formulário, por padrão ele é get, ou seja, os campos que estiverem dentro desse formulário vão ser atrelados a URL da página com parâmetros de URL. Isso será melhor explicado em JavaScript. Os mais famosos são get e post. Os próximos são opcionais, que foram usados para didática da aula.-->
+        <!--o atributo target, diz o que será feito quando for concluído uma de clique, no caso atributo target="_blank" ao enviar o formulário será aberta uma outra aba no navegador. Não é geralmente usado. Normalmente ao enviar um formulário ficamos na mesma página.-->
+        <!--Atributo autocomplete é para o navegador não ficar mostrando coisas que foram digitadas anteriormente para o formulário. Desativamos apenas para visualizar melhor na aula. Geralmente fica ativo.-->
+            <h1>Caebeçalho</h1>
+            <p>O formulário</p>
+            <fieldset> <!--A Tag <fieldset> faz com que possa agrupar vários campos de um formulário.-->
+                <legend>Descrição</legend> <!-- Dentro de fieldset você coloca a Tag <legend> para informar a descrição daquele grupo. Essas Tags tem importância semântica, servem para os leitores externos.-->
+                <p>
+                    <input type="text">
+                </p>
+            </fieldset>
+        </form>
+    </section>
+</body>
+</html>

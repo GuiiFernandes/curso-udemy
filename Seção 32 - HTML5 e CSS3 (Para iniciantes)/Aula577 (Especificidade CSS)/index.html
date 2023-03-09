@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <title>Especificidade CSS</title>
+</head>
+<body id="b" class="bclass">
+    <p class="p" id="p">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias dolorem at cupiditate sequi beatae, voluptate voluptatem perspiciatis neque facere asperiores, dolore aperiam repellendus ut tempore magni odio enim perferendis officiis?
+    </p>
+    <p style="background: yellow;"> <!--Atributo style sobreescreve body#b.bclass p#p.p:hover::selection, 1000 > 233-->
+        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Omnis aspernatur eius nesciunt sed placeat, exercitationem molestias, possimus a quisquam quibusdam beatae. Iusto laboriosam nostrum labore, atque enim tenetur? Aperiam, nisi.
+    </p>
+    <!--Para fator de conta a TAG Style entra como:
+    style - ID - Classes, Atributos e pseudo-classes - Elementos e pseudo-elementos
+    1 - 0 - 0 - 0 = 1000-->
+    <!--Porém esse jeito não é usado no VS Studio.-->
+</body>
+</html>

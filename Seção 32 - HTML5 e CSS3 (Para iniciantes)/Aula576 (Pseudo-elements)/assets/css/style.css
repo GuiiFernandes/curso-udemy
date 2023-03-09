@@ -1,0 +1,42 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+/*Enquanto a pseudo-classe estiliza baseado em seu estado, o pseudo-elemento estiliza uma parte específica do conteúdo a partir de um elemento.*/
+/*É aplicado ao usar "::", mas também funciona com ":"*/
+/*No exemplo abaixo usamos o pseudo-elemento before e after. Para adicionar e/ou  estilizar um contéudo, respectivamente, o começo ou fim no começo ou fim do conteúdo de uma TAG.*/
+ul li::before {
+    content: 'meunu '; /*content é usado por obrigação para gerar conteúdo no elemento criado em after ou before.*/
+    background: red;
+    color: #fff;
+    display: block; /*É por padrão in-line, mas qualquer estilização pode ser aplicada e ficar exclusiva do pseudo-elemento aplicado a um seletor.*/ 
+} /*no Inspecionar esse elemento aparece independente não fazendo parte do html.*/
+
+/*Pseudo-elemento que estiliza a primeira letra de um conteúdo.*/
+p::first-letter {
+    font-size: 35px;
+    display: block;
+    float: left; /*float flutua o elemento para um lado determinado, nesse caso para a esquerda, fazendo com que apesar de ser display:box, aceite elementos laterais a ele..*/
+    margin: 0 10px -20px 0;
+}
+
+/*Estiliza a primeira linha do conteúdo.*/
+p::first-line {
+    background: red;
+}
+
+/*Estiliza o que o usuário selecionar com o mouse*/
+p::selection {
+    background: black;
+    color: white;
+}
+
+/*Estiliza o placeholder do input, não precisa necessariamente do input antes, apenas o ::placeholder já funciona e vai aplicar a todos os placeholders da página.*/
+input::placeholder {
+    color: green;
+}
+/*Posso usar uma classe ou id também.*/
+.form-field::placeholder {
+    color:blue;
+} /*Neste exemplo a letra azul sobreescreveu input, porque classe tem prioridade a TAG e a está após input.*/

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Box Model</title>
+    <!--Toda programação em HTML é formada por blocos e esses blocos são formados por conteúdo, padding, border e margin-->
+    <style>
+        * { /*Sempre que eu iniciar meu CSS vou usar um reset de margem, padding e um box-border para facilitar a medição das minhas boxs. Essas funções vão ser explicadas abaixo.*/
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        /*Vamos trabalhar a border da section 1*/
+        .section-one {
+            background-color: deeppink;
+            background-image: url(https://media.springernature.com/full/springer-cms/rest/v1/img/18893370/v1/height/320); /*Adiciona uma imagem por URL ao fundo*/
+            background-size: cover; /*Faz com que a imagem se ajuste a section*/
+            background-position: center center; /*faz com que minha imagem centralize tanto do topo para baixo, quanto de um lado ao outro*/
+            color: white; /*Colori o texto para ficar mais visível*/
+            
+            width: 200px; /*Defini altura para ficar mais fácil de identificar como a borda age no conteúdo da section*/
+            border: 5px solid black; /*Forma resumida de configurar borda, toda borda precisa ter espessura, tipo e cor.*/
+            /*Nesse caso temos a borda com espessura de 5px, com tipo sólida e cor preta, na box2 observamos a forma detalhada de criar uma borda.*/
+            /*O comando border cria uma borda na parte externa da caixa da section, adicionando uma borda completa com tipo solida de 5 pixels na cor preta na section 1*/
+            /*Note como ao criar a border, ela acrescenta uma borda de 5px e mantém o conteúdo com 200x162, ficando assim com dimensão total de 210x172*/
+            padding: 15px;
+            /*Ao modificar o padding você cria uma espaço vazio entre o conteúdo e a borda da box. Mas não modifica o tamanho do conteúdo, portanto se o conteúdo for modificado, o tamanho interno da caixa se ajusta ao conteúdo.*/
+            /*Nesse exemplo nossa caixa que tem 200x162, vai acrescentar 200 (conteúdo) + 2x15 (padding) + 2x5 (border) x 162 (conteúdo) + 2x15 (padding) + 2x5 (border) = 240x202*/
+            /*É importante observar que ao adicionar a imagem ao fundo, ela preenche também o padding. Portanto, podemos afirmar que o o padding está na parte interna da box, o conteúdo (texto) não está em padding, mas o padding está em volta do conteúdo e dentro da box.*/
+            margin: 20px; /*A margem empurra o conteúdo 20 px para longe dos outros conteúdos.*/
+            /*A margem tem como função de empurrar um conteúdo para longe de outro conteúdo e é transparente*/
+        }
+
+        .section-two,
+        .section-three {
+            box-sizing: border-box;
+            /*O box-sizing serve para padronizar a medida da minha box. Pois, nas configurações padrões padding e border não são levados em consideração no tamanho do box, ao adicionar border-box eu digo que se for descrito width e height em um elemento, padding e border serão levados em consideração no tamanho do box, portanto, se esse programa tivesse sido usado em box1, teriamos um conteúdo minimizado para 200px = 2x15px (padding) + 2x5px (border) + 160px (conteúdo).
+            Assim como acontece em 3.*/
+        }
+
+        .section-two {
+            background: cyan;
+            /*Ao copiar os elementos que dimensionaram o box 1, modificando apenas o tamanho da margem de topo da box. Podemos fazer uma observação interessante.*/
+            width: 200px;
+            /*Nessa vamos modificar a bordar para visualizar a forma detalhada de criação da borda. Vamos criar uma borda inferior, de 10 px e com cor verde.*/
+            border-bottom-style: solid;
+            border-bottom-width: 10px;
+            border-bottom-color: greenyellow;
+            padding: 15px;
+            margin: 30px /*TOPO*/ 25px /*DIREITA*/ 20px /*BAIXO*/ 25px /*ESQUERDA*/; /*SEMPRE NO SENTIDO HORÁRIO*/
+            /*Na box1 colocamos todas as margens com o mesmo tamanho, na box2 definimos as medidas de cada lado independente.*/
+            /*Podemos variar as medidas de cada lado também em padding. Nessa margin usamos uma medida para cada lado conforme ordem acima.
+            Fizemos isso para manter a box centralizada as demais independente da sua borda menor.*/
+            /*Podemos visualizar que as margens sobrepõe uma a outra, portanto não temos a box1 a 50px (30+20) da box2 e sim a box2 a 30px da box1. Sendo assim sobrepõe-se a borda maior.*/
+        }
+
+        .section-three {
+            /*Criamos a box3 para visualizar como podemos trabalhar com cada elemento de border, margin e padding independentes*/
+            background: rgb(51, 15, 15);
+            color:white;
+            width: 200px;
+            /*Nessa vamos modificar a bordar para visualizar a forma detalhada de criação da borda. Vamos criar uma borda completa, de 10 px sólida e com cada parte de cor diferente.*/
+            border-style: solid;
+            border-width: 5px;
+            border-top-color: green;
+            border-left-color: blue;
+            border-right-color: yellow;
+            border-bottom-color: red;
+            padding: 50px /*TOPO/CENTRO*/ 15px /*DIREITA/ESQUERDA*/; /*Note que assim como em margin da box2, usamos uma forma de especificar tamanhos diferentes em algum lado. Porém neste caso temos 1 medida para diferente para topo e baixo e direita e esquerda. Sendo assim a ordem de agrupamento vai ser sempre esse.*/
+            margin: 30px 20px;
+            /*Podemos visualizar que as margens sobrepõe uma a outra, portanto não temos a box1 a 50px (30+20) da box2 e sim a box2 a 30px da box1. Sendo assim sobrepõe-se a borda maior.*/
+        }
+    </style>
+</head>
+<body>
+    <!--Criamos duas section para demonstrar como o navegador organiza e limita essas sections a partir do CSS criado para suas classes.-->
+    <section class="section-one">
+        <!--Quando criamos um texto dentro de uma caixa, por padrão não existe um espaço entre as laterais da caixa e o texto.
+        Isso é prejudicial para a estética, design, do seu site, para modificar esse espaço entre as laterais da caixa e o conteúdo, usamos o padding no CSS-->
+        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Consectetur id iure animi et quos repellendus reprehenderit laboriosam adipisci eius laborum laudantium, corrupti rerum repudiandae vitae cumque eaque ab! Numquam, doloribus!
+    </section>
+    <section class="section-two">
+        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Consectetur id iure animi et quos repellendus reprehenderit laboriosam adipisci eius laborum laudantium, corrupti rerum repudiandae vitae cumque eaque ab! Numquam, doloribus!
+    </section>
+    <section class="section-three">
+        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Consectetur id iure animi et quos repellendus reprehenderit laboriosam adipisci eius laborum laudantium, corrupti rerum repudiandae vitae cumque eaque ab! Numquam, doloribus!
+    </section>
+</body>
+</html>

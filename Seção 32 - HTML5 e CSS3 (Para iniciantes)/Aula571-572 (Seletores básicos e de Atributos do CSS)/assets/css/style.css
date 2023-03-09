@@ -1,0 +1,57 @@
+*{
+    margin:0;
+    padding: 0;
+}
+
+/*Esse seletor diz que toda TAG <p> após <h1> que está dentro de uma TAG com classe pai recebe essa estilização*/
+/*Esse seletor é chamado de Adjacent sibling selector e é caracterizado pelo uso de "+" para indicar quais as tags tem que ser irmãs. Sempre a estilazada sendo a direita e a TAG âncora a esquerda.*/
+.pai h1+p {
+    color: red;
+}
+
+/*Ao inverter as posições de <p> e <h1> eu digo que toda TAG <h1> após <p> que está dentro de uma TAG com classe pai recebe essa estilização. Isso vai fazer com que apenas "Título 2" seja estilizado.*/
+.pai p+h1 {
+    color:yellow;
+}
+
+/*Podemos usar também o general sibling selector, que é caracterizado pelo uso de "~" e nos diz que será estilizado todo <p> após <h1> que está dentro de uma TAG que contém a classe .pai2*/
+.pai2 h1~p {
+    color:blue;
+} /*Da mesma formar que o Adjacent sibling selector, inverter a ordem de <p> e <h1> muda completamente a estilização*/
+/*Pode ser usado com qualquer TAG ou div, como por exemplo, ".pai .class1~.class2". Desde que se lembre que o seletor de classes é o "."*/
+
+/*Podemos também selecionar atributos de TAGs. Nesse caso usamos [] para chamar o atributo, posso chamar apenas o atributo ou chamar ele quando ele tiver um valor determinado, note que em título 5 e 6 eu coloro os h1 sempre que meu atributo tem valor "A"*/
+[meu-atributo="A"] {
+    color: green;
+} /*Se eu quisesse apenas chamar o atributo usaria [meu-atributo], dessa forma independente do valor do atributo, toda TAG que tivesse ele seria estilizada. Sendo o exemplo acima, mais específico com valor do que sem.*/
+
+/*Posso selecionar coisas que já possuem atributo padrão. Nesse caso eu deixei o botão já selecionado por padrão no meu checkbox com tamanho maior. Esse tipo de seletor é tão específico que mesmo deselecionando o checkbox, o tamanho não muda. Esse exemplo foi só para demonstrar o seletor de atributo, para isso existe um seletor específico. (pseudo-classe e pseudo-elemento).*/
+[checked] {
+    height: 20px;
+    width: 20px;
+}
+
+/*Quando eu quero selecionar um atributo que tenha vários valores e estilizar se o atributo tiver um valor específico, independente dos demais, uso "~=" no lugar do igual.*/
+[meu-atributo2~="valor1"] { /*Funciona se o valor for "valor1", "valor2" ou "valor3"*/
+    color: orange;
+}
+
+/*Esse seletor pega um atributo cujo primeiro valor do atributo começa com o valor dentro de "" e depois tem -. Ele é caracterizado pelo "|="*/
+[meu-atributo3|="outracoisa"] { /*É meio ínutil esse seletor.*/
+    color: purple;
+}
+
+/*Existe o seletor que pega o atributo que o primeiro valor começa com determinado texto. Ele é caracterizado pelo "^="*/
+[meu-atributo4^="coi"] {
+    color:pink;
+}
+
+/*Existe o seletor que pega o atributo que o último valor termina com determinado texto. Ele é caracterizado pelo "$="*/
+[meu-atributo5$="rai"] {
+    color:cyan;
+}
+
+/*Existe o seletor que pega o atributo que o último valor contém determinado texto. Ele é caracterizado pelo "*="*/
+[meu-atributo6*="demais coisa"] { /*Espaço conta, se tirar o espaço dá errado.*/
+    color:rosybrown;
+}
